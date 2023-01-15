@@ -1,13 +1,14 @@
 body{
-    background-image: url("https://png.pngtree.com/background/20210716/original/pngtree-light-blue-cute-striped-baby-blue-background-picture-image_1348681.jpg");
-    padding: 0 40px;
-    align-items: center;
+    
+    background-image: url("C:\Users\Mahek\EHR\client\src\assets\background.jpg");
 }
 
 .main{
 
     display: flex;
-    /* background-color: aqua; */
+    padding: 0 40px;
+    align-items: center;
+    
 
 }
 
@@ -17,19 +18,33 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 400px;
-    /* background-color: aqua; */
-
-
+    height: 300px;
+    width: 500px;
+    justify-content: space-around;
+    font-weight: bold;
+    font-family: 'Playfair Display';
+    padding-top: 150px;
 }
 
 .main__desc{
 
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    /* background-color: brown; */
+}
 
+.main__desc p{
+
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+.main__desc-quotes{
+    color: black;
+    ;
 }
 
 .homescreen{
