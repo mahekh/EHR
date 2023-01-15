@@ -1,14 +1,17 @@
 body{
     
-    background-image: url("C:\Users\Mahek\EHR\client\src\assets\background.jpg");
+    background-image: url("C:\Users\Mahek\EHR\client\src\assets\b1.jpeg");
 }
 
 .main{
 
-    display: flex;
     padding: 0 40px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    
+    /* border: 2px solid black; */
+    width: 550px;
+    height: 400px;
 
 }
 
@@ -18,12 +21,16 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 300px;
-    width: 500px;
+    /* border: 2px solid red; */
     justify-content: space-around;
     font-weight: bold;
     font-family: 'Playfair Display';
-    padding-top: 150px;
+    font-size: 35px;
+    /* padding-top: 150px; */
+    /* height: 300px;
+    width: 500px; */
+    
+
 }
 
 .main__desc{
@@ -32,22 +39,23 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: brown; */
+    /* border: 2px solid rebeccapurple; */
+    padding-top: 20px;
 }
 
 .main__desc p{
 
-    font-size: 25px;
-    font-weight: bold;
+    /* font-size: 25px;
+    font-weight: bold; */
     color: black;
+    /* border: 2px solid orange; */
+    font-size: 17px;
+    line-height: 30px;
+    font-family: 'Playfair Display';
+    font-weight: 600;
 }
 
 .main__desc-quotes{
     color: black;
-    ;
-}
-
-.homescreen{
-    width: 550px;
-    height: 503px;
+    
 }

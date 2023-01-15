@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/Navbar.css'
+import logo from '../assets/logo.jpg';
 
 
 
@@ -8,6 +9,7 @@ function Navbar() {
 
         <div className='navbar'>
             <div className='navbar__header'>
+                <img className='logo' src={logo} />
                 <p>EHR APPLICATION</p>
             </div>
 
