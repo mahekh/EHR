@@ -1,0 +1,15 @@
+body{
+    background-image: url("https://png.pngtree.com/background/20210716/original/pngtree-light-blue-cute-striped-baby-blue-background-picture-image_1348681.jpg");
+}
+
+.main{
+
+    display: flex;
+    /* background-color: aqua; */
+
+}
+
+.homescreen{
+    width: 550px;
+    height: 503px;
+}

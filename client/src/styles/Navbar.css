@@ -1,19 +1,28 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    padding: 0 30px;
-
+    padding: 10px 50px;
+    margin-bottom: 30px;
+    background-color: white;
 
 }
 
 .navbar__header{
     display: flex;
+    align-items: center;
+}
+
+.navbar__header p{
+
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
 }
 
 
 .navbar__menu{
     width: 500px;
-    background-color: aqua;
+    /* background-color: aqua; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,7 +36,7 @@
 
 .navbar__item a{
     text-decoration: none;
-    color: #000;
+    color: black;
     font-size: 20px;
 }
 
