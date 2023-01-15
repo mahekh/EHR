@@ -1,0 +1,33 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+
+
+}
+
+.navbar__header{
+    display: flex;
+}
+
+
+.navbar__menu{
+    width: 500px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.navbar__item{
+    list-style-type: none;
+
+}
+
+.navbar__item a{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+}
+
