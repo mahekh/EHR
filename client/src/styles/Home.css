@@ -1,11 +1,34 @@
 body{
     background-image: url("https://png.pngtree.com/background/20210716/original/pngtree-light-blue-cute-striped-baby-blue-background-picture-image_1348681.jpg");
+    padding: 0 40px;
+    align-items: center;
 }
 
 .main{
 
     display: flex;
     /* background-color: aqua; */
+
+}
+
+.main__content{
+
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    /* background-color: aqua; */
+
+
+}
+
+.main__desc{
+
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 
