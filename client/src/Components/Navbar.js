@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/Navbar.css'
 import logo from '../assets/logo.jpg';
+import { Link } from 'react-router-dom';
 
 
 
@@ -15,13 +16,13 @@ function Navbar() {
 
             <ul className='navbar__menu'>
                 <li className='navbar__item'>
-                    <a href="#">ADMIN</a>
+                    <Link to="/AdminDash">ADMIN</Link>
                 </li>
                 <li className='navbar__item'>
-                    <a href="#">DOCTOR</a>
+                    <a href="/DoctorDash">DOCTOR</a>
                 </li>
                 <li className='navbar__item'>
-                    <a href="#">PATIENT</a>
+                    <a href="/PatientDash">PATIENT</a>
                 </li>
             </ul>
 

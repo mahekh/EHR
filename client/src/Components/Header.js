@@ -1,9 +1,10 @@
 import React from 'react'
+import '../styles/Header.css'
 
 function Header() {
     return ( 
-        <div className='header'>
-            <p>EHR APPLICATION</p>
+        <div className='sticky_header'>
+                <p>EHR APPLICATION</p>
         </div>
      );
 }

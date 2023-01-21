@@ -1,0 +1,17 @@
+.sticky_header{
+    display: flex;
+    font-weight: bolder;
+    font-family: 'Playfair Display';
+    font-size: 30px;
+    font-weight: medium;
+    color: black;
+    font-family: 'Playfair Display';
+    background-color: #b2e2f2;
+    padding: 5px 30px;
+    margin-top: -5px;
+    /* border: 2px solid red; */
+    /* display: flex; */
+    /* justify-content: space-between; */ 
+    /* background-color: white; */
+    /* align-items: center; */
+}
