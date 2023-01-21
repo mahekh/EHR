@@ -28,7 +28,7 @@ function Home() {
             <img className="logo" src={logo} />
             <p>EHR APPLICATION</p>
           </div>
-          <div className="d-flex">{account}</div>
+          {/* <div className="d-flex">{account}</div> */}
           <ul className="navbar__menu">
             <li className="navbar__item">
               <Link to="/AdminDash">ADMIN</Link>
