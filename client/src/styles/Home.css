@@ -1,7 +1,28 @@
-body{
+.homepageback{
     
     background-image: url("C:\Users\Mahek\EHR\client\src\assets\b1.jpeg");
+    min-height: 96.5vh;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    
 }
+
+/* body{
+    background-image: url("C:\Users\Mahek\EHR\client\src\assets\b1.jpeg");
+} */
+
+/* .background{
+    background-image: url("C:\Users\Mahek\EHR\client\src\assets\b1.jpeg");
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+} */
 
 .main{
 
@@ -12,6 +33,7 @@ body{
     /* border: 2px solid black; */
     width: 550px;
     height: 400px;
+    
 
 }
 
