@@ -1,8 +1,14 @@
+import React from 'react'
+import Header from './Header';
+
 function PatientDash() {
     return ( 
+    <>   
         <div>
-            <p>Patient dashboard</p>
+            <Header/>
         </div>
+
+    </>     
      );
 }
 

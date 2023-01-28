@@ -34,10 +34,10 @@ function Home() {
               <Link to="/AdminDash">ADMIN</Link>
             </li>
             <li className="navbar__item">
-              <a href="#">DOCTOR</a>
+              <Link to="/DoctorDash">DOCTOR</Link>
             </li>
             <li className="navbar__item">
-              <a href="#">PATIENT</a>
+            <Link to="/PatientDash">PATIENT</Link>
             </li>
           </ul>
         </div>
