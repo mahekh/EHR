@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './Header';
+
 
 
 function DoctorDash() {
@@ -7,7 +7,7 @@ function DoctorDash() {
 
         <>
         <div>
-            <Header/>
+            
         </div>
         </>
      );

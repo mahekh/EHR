@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <div className="container">
-        {/* <Home/> */}
 
         <Router>
           <Routes>
@@ -24,10 +23,6 @@ function App() {
           </Routes>
         </Router>
 
-        {/* <Header/>
-     <AdminDash></AdminDash>
-     <DoctorDash></DoctorDash>
-     <PatientDash></PatientDash> */}
       </div>
     </>
   );
