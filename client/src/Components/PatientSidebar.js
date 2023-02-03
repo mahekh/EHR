@@ -4,7 +4,7 @@ import "../styles/Sidebar.css";
 import * as FaIcons from "react-icons/fa";
 
 
-function AdminSidebar() {
+function PatientSidebar() {
 
     const [sidebar, setSidebar] = useState(false);
 
@@ -48,4 +48,4 @@ function AdminSidebar() {
 
 
 
-export default AdminSidebar;
+export default PatientSidebar;

@@ -2,12 +2,14 @@ import React from 'react'
 import styled from "styled-components";
 import AdminSidebar from './AdminSidebar';
 
+
 function Admin() {
     return ( 
 
     <div>
+        
        <Container>
-            <AdminSidebar/> 
+        <AdminSidebar/> 
        </Container>
     </div>
      );

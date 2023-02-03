@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Web3Helper } from "../Helper/web3-helper";
 
+
 function Home() {
   const [account, setAccount] = useState();
 
@@ -23,7 +24,7 @@ function Home() {
   return (
     <>
       <div className="homepageback">
-        <div className="navbar">
+        <div className="home-navbar">
           <div className="navbar__header">
             <img className="logo" src={logo} />
             <p>EHR APPLICATION</p>
