@@ -1,16 +1,13 @@
-.sticky_header{
+.navbar__header{
     display: flex;
+    align-items: center;
     font-weight: bolder;
-    font-size: 30px;
-    font-weight: medium;
-    color: black;
     font-family: 'Playfair Display';
-    background-color: lightskyblue;
-    padding: 5px 30px;
-    margin-top: -5px;
     /* border: 2px solid red; */
-    /* display: flex; */
-    /* justify-content: space-between; */ 
-    /* background-color: white; */
-    /* align-items: center; */
+}
+
+.navbar__header img{
+
+    height: 50px;
+    width: 50px;
 }

@@ -1,9 +1,11 @@
 import React from 'react'
 import '../styles/Header.css'
+import logo from "../assets/logo.jpg";
 
 function Header() {
     return ( 
-        <div className='sticky_header'>
+        <div className="navbar__header">
+            <img className="logo" src={logo} />
             <p>EHR APPLICATION</p>
         </div>
      );
