@@ -1,47 +1,25 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import "../styles/Sidebar.css";
-import * as FaIcons from "react-icons/fa";
 
 
 function AdminSidebar() {
 
-    const [sidebar, setSidebar] = useState(false);
-
-    const showSidebar = () => setSidebar(!sidebar);
-
     return (
     <>
-        <div className='sidebar'>
-            <Link to="#" className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar}/>
-            </Link>    
-        </div>
-
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-            <ul className='nav-menu-items'>
-                <li className='navbar-toggle'>
-                    <Link to='#' className='menu-bars'>
-                    </Link>
+        <div className='side__bar'>
+            <ul className='sidebar__list'>
+                <li className='row'>
+                     <Link to="AdminDash">Dashboard</Link>
                 </li>
-
-                <li className='nav-text'>
-                    <Link to='/Dashboard'>
-                        <span>Dashboard</span>
-                    </Link>
+                <li className='row'>
+                    <Link to="#">Doctor</Link>
                 </li>
-                <li className='nav-text'>
-                    <Link to='/Doctor'>
-                        <span>Doctor</span>
-                    </Link>
-                </li>
-                <li className='nav-text'>
-                    <Link to='/Patient'>
-                        <span>Patient</span>
-                    </Link>
+                <li className='row'>
+                    <Link to="#">Patient</Link>
                 </li>
             </ul>
-        </nav>
+        </div>
     </>    
     );
 }
