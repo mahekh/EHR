@@ -1,92 +1,65 @@
-import React from 'react'
-import AdminSidebar from './AdminSidebar';
-import Header from './Header';
+import React from "react";
 import styled from "styled-components";
 import { BsFillCalendar2WeekFill } from "react-icons/bs";
 import { IoStatsChart } from "react-icons/io5";
 import { BiGroup } from "react-icons/bi";
 import { FiActivity } from "react-icons/fi";
 
-
-
-function AdminDash() {
-    return ( 
-<>
-    <div style={{display:'flex'}}>
-        <AdminSidebar/>
-    <div className='main-container'>
-    <Header/> 
-    <Section className='section'>
+export default function Card() {
+  return (
+    <Section>
       <div className="analytic ">
         <div className="content">
-          <h5>Total number of Doctors</h5>
-          <h2>5</h2>
+          <h5>Spent this month</h5>
+          <h2>$682.5</h2>
         </div>
         <div className="logo">
           <BsFillCalendar2WeekFill />
         </div>
       </div>
-
       <div className="analytic">
         <div className="logo">
           <IoStatsChart />
         </div>
         <div className="content">
-          <h5>Total number of Patients</h5>
-          <h2>10</h2>
+          <h5>Earnings</h5>
+          <h2>$350.40</h2>
         </div>
       </div>
-
       <div className="analytic">
         <div className="logo">
           <BiGroup />
         </div>
         <div className="content">
-          <h5>New Users</h5>
-          <h2>3</h2>
+          <h5>New clients</h5>
+          <h2>321</h2>
         </div>
       </div>
-
       <div className="analytic ">
         <div className="content">
-          <h5>Total Users</h5>
-          <h2>15</h2>
+          <h5>Activity</h5>
+          <h2>$540.50</h2>
         </div>
         <div className="logo">
           <FiActivity />
         </div>
       </div>
-      </Section>
-    </div>
-
-        
-    </div>
-
-    
-    
-    </>
-     );
+    </Section>
+  );
 }
-
 const Section = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin-top:30px;
-  margin-left:30px;
-
   .analytic {
     padding: 1rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 1rem;
-    background-color:#4da598;
-    height: 200px;
-    width: 450px;
     transition: 0.5s ease-in-out;
     &:hover {
-      background-color: #323f52;
+      background-color: #ffc107;
       color: black;
       svg {
         color: white;
@@ -114,6 +87,3 @@ const Section = styled.section`
     }
   }
 `;
-
-
-export default AdminDash;
