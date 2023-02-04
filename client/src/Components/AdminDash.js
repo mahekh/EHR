@@ -2,7 +2,7 @@ import React from 'react'
 import AdminSidebar from './AdminSidebar';
 import Header from './Header';
 import styled from "styled-components";
-import { BsFillCalendar2WeekFill } from "react-icons/bs";
+import { FaStethoscope } from "react-icons/fa";
 import { IoStatsChart } from "react-icons/io5";
 import { BiGroup } from "react-icons/bi";
 import { FiActivity } from "react-icons/fi";
@@ -17,17 +17,18 @@ function AdminDash() {
     <div className='main-container'>
     <Header/> 
     <Section className='section'>
-      <div className="analytic ">
+
+      <div className="admin-info ">
         <div className="content">
           <h5>Total number of Doctors</h5>
           <h2>5</h2>
         </div>
         <div className="logo">
-          <BsFillCalendar2WeekFill />
+          <FaStethoscope />
         </div>
       </div>
 
-      <div className="analytic">
+      <div className="admin-info">
         <div className="logo">
           <IoStatsChart />
         </div>
@@ -37,7 +38,7 @@ function AdminDash() {
         </div>
       </div>
 
-      <div className="analytic">
+      <div className="admin-info">
         <div className="logo">
           <BiGroup />
         </div>
@@ -47,7 +48,7 @@ function AdminDash() {
         </div>
       </div>
 
-      <div className="analytic ">
+      <div className="admin-info ">
         <div className="content">
           <h5>Total Users</h5>
           <h2>15</h2>
@@ -75,7 +76,7 @@ const Section = styled.section`
   margin-top:30px;
   margin-left:30px;
 
-  .analytic {
+  .admin-info {
     padding: 1rem;
     display: flex;
     justify-content: space-evenly;
