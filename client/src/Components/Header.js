@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <Nav>
       <div className="title">
-        <h1>Hi Admin,</h1>
+        <h1>Hi {props.roles},</h1>
         <h1>
           Welcome to <span>YOUR DASHBOARD</span>
         </h1>

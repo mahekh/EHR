@@ -1,14 +1,13 @@
 import React from 'react'
 import PatientSidebar from './PatientSidebar';
-
+import Header from './Header';
 
 function PatientDash() {
     return ( 
     <>   
-        <div>
+        <div style={{display:'flex'}}>
         <PatientSidebar/> 
-        {/* <Container>
-       </Container> */}
+        <Header roles="Patient"/>
         </div>
 
     </>     

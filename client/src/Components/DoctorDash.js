@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from "styled-components";
+import AddpatForm from './AddpatForm';
+import Docprofile from './Docprofile';
 import DoctorSidebar from './DoctorSidebar';
+import Header from './Header';
 
 
 
@@ -8,8 +11,12 @@ function DoctorDash() {
     return ( 
 
         <>
-        <div>
+        <div style={{display:'flex'}}>
             <DoctorSidebar/>
+            <Header roles="Doctor"/>
+            {/* <AddpatForm/> */}
+
+            {/* <Docprofile/> */}
         </div>
         </>
      );

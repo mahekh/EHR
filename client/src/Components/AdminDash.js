@@ -15,7 +15,7 @@ function AdminDash() {
     <div style={{display:'flex'}}>
         <AdminSidebar/>
     <div className='main-container'>
-    <Header/> 
+    <Header roles="Admin"/> 
     <Section className='section'>
 
       <div className="admin-info ">
