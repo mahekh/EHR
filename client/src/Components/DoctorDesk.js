@@ -1,9 +1,8 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar';
-import Card from './Card';
 import Header from './Header'
-import adddoc from "../assets/add-doc.jpg";
-import deletedoc from "../assets/delete-doc.jpg";
+import AddDoc from './AddDoc'
+import DeleteDoc from './DeleteDoc';
 
 
 
@@ -16,17 +15,8 @@ function DoctorDesk()
       <div className='main-container'>
           <Header/> 
         <div style={{display:'flex'}}>
-
-          <Card img={adddoc}
-                title="Register Doctor"
-                description="Register a Doctor by clicking on the button below"
-                cardbtn="Add Doctor"
-          />
-          <Card img={deletedoc} 
-                title="Delete Doctor"
-                description="Delete a Doctor by clicking on the button below"
-                cardbtn="Delete Doctor"
-          />
+          <AddDoc/>
+          <DeleteDoc/>
         </div>
       </div>   
 
