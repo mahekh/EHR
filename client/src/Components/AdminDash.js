@@ -88,7 +88,7 @@ const Section = styled.section`
     transition: 0.5s ease-in-out;
     &:hover {
       background-color: #323f52;
-      color: black;
+      color: white;
       svg {
         color: white;
       }
@@ -98,7 +98,7 @@ const Section = styled.section`
       border-radius: 3rem;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: xcenter;
       padding: 1.5rem;
       svg {
         font-size: 1.5rem;

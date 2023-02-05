@@ -13,10 +13,10 @@ function AdminSidebar() {
                      <Link className='row-text' to="/AdminDash">Dashboard</Link>
                 </li>
                 <li className='row'>
-                    <Link className='row-text' to="/AdminDoc">Doctor Desk</Link>
+                    <Link className='row-text' to="/DoctorDesk">Doctor Desk</Link>
                 </li>
                 <li className='row'>
-                    <Link className='row-text' to="/AdminPatient">Patient Desk</Link>
+                    <Link className='row-text' to="/PatientDesk">Patient Desk</Link>
                 </li>
             </ul>
         </div>

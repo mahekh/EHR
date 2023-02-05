@@ -2,9 +2,11 @@ import React from 'react'
 import AdminSidebar from './AdminSidebar';
 import Header from './Header';
 import styled from "styled-components";
+import Card from './Card';
+import addpatient from "../assets/add-patient.png";
+import deletepatient from "../assets/delete-patient.png";
 
-
-function AdminPatient() {
+function PatientDesk() {
   return (
     <>
     <div style={{display:'flex'}}>
@@ -12,6 +14,18 @@ function AdminPatient() {
         
         <div className='main-container'>
             <Header/> 
+            <div style={{display:'flex'}}>  
+            <Card img={addpatient}
+                title="Register Patient"
+                description="Register a Patient by clicking on the button below"
+                cardbtn="Add Patient"
+          />
+          <Card img={deletepatient} 
+                title="Delete Patient"
+                description="Delete a Patient by clicking on the button below"
+                cardbtn="Delete Patient"
+          />
+          </div>
         </div>   
     </div> 
     </>
@@ -65,4 +79,4 @@ const Section = styled.section`
   }
 `;
 
-export default AdminPatient
+export default PatientDesk

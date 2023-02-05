@@ -5,8 +5,8 @@ import AdminDash from "./Components/AdminDash";
 import PatientDash from "./Components/PatientDash";
 import DoctorDash from "./Components/DoctorDash";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AdminDoc from "./Components/AdminDoc";
-import AdminPatient from "./Components/AdminPatient";
+import DoctorDesk from "./Components/DoctorDesk";
+import PatientDesk from "./Components/PatientDesk";
 
 function App() {
   return (
@@ -23,9 +23,9 @@ function App() {
 
             <Route path="/PatientDash" element={<PatientDash />} />
 
-            <Route path="/AdminDoc" element={<AdminDoc />} />
+            <Route path="/DoctorDesk" element={<DoctorDesk />} />
 
-            <Route path="/AdminPatient" element={<AdminPatient/>} />
+            <Route path="/PatientDesk" element={<PatientDesk/>} />
           </Routes>
         </Router>
 
