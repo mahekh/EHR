@@ -3,23 +3,11 @@ import "../styles/Home.css";
 import "../styles/Navbar.css";
 import logo from "../assets/logo.jpg";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Web3Helper } from "../Helper/web3-helper";
+
 
 
 function Home() {
-  const [account, setAccount] = useState();
-
-  useEffect(() => {
-    let web3 = new Web3Helper();
-    web3.getWeb3().then(() => {
-      web3.getCurrentAccount().then((id) => {
-        setAccount(id);
-      });
-    });
-
-    return () => {};
-  }, []);
+  
 
   return (
     <>
