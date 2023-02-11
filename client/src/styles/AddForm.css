@@ -13,12 +13,12 @@
     padding: 10px;
   }
   
-  /* .success-message {
+  .success-message {
     font-family: "Roboto", sans-serif;
-    background-color: #3f89f8;
+    background-color: #4da598;
     padding: 15px;
     color: white;
-  } */
+  }
   
   .form-field {
     margin: 10px 0 10px 0;
@@ -28,21 +28,21 @@
     font-family: "Roboto", sans-serif;
   }
   
-  /* span {
+  span {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     color: red;
     margin-bottom: 15px;
-  } */
+  }
   
   input {
     background: #f2f2f2;
   }
   
-  /* .error {
+  .error {
     border-style: solid;
     border: 2px solid #ffa4a4;
-  } */
+  }
   
   button {
     background: #4da598;
