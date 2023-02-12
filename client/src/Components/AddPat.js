@@ -14,54 +14,26 @@ function AddPat() {
     setModal(!modal)
   }
 
-  const [Patvalues, setPatValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    number: "",
-    id: "",
-    city: "",
-    country: "",
-
-  });
-
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false)
 
-  const handleFirstNameInputChange = (event) => {
-    setPatValues({...Patvalues, firstName: event.target.value})
-  }
-
-  const handleLastNameInputChange = (event) => {
-    setPatValues({...Patvalues, lastName: event.target.value})
-  }
-
-  const handleEmailInputChange = (event) => {
-    setPatValues({...Patvalues, email: event.target.value})
-  }
-
-  const handleNumberInputChange = (event) => {
-    setPatValues({...Patvalues, number: event.target.value})
-  }
-
-  const handleIDInputChange = (event) => {
-    setPatValues({...Patvalues, id: event.target.value})
-  }
-
-  const handleCityInputChange = (event) => {
-    setPatValues({...Patvalues, city: event.target.value})
-  }
-
-  const handleCountryInputChange = (event) => {
-    setPatValues({...Patvalues, country: event.target.value})
-  }
+  const [firstName, setFirstname] = useState('');
+  const [lastName, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [number, setNumber] = useState('');
+  const [id, setID] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(Patvalues.firstName && Patvalues.lastName && Patvalues.email && Patvalues.number && Patvalues.id && Patvalues.city && Patvalues.country){
+    if(firstName && lastName && email && number && id && city && country){
       setValid(true);
     }
     setSubmitted(true);
+
+    const patient_profile = { firstName, lastName, email, number, id, city, country };
+    console.log(patient_profile);
     
   }
 
@@ -85,27 +57,27 @@ function AddPat() {
       <form class="register-form" onSubmit={handleSubmit}>
       {submitted && valid ? <div className="success-message">Patient Registered</div> : null}
         
-      <input onChange={handleFirstNameInputChange} value={Patvalues.firstName} id="first-name" class="form-field" type="text" placeholder="First Name" name="firstName"/>
-        {submitted && !Patvalues.firstName ? <span>Please enter First Name</span>: null}
+      <input onChange={(e) => setFirstname(e.target.value)} value={firstName} id="first-name" class="form-field" type="text" placeholder="First Name" name="firstName"/>
+        {submitted && ! firstName ? <span>Please enter First Name</span>: null}
 
-        <input onChange={handleLastNameInputChange} value={Patvalues.lastName} id="last-name" class="form-field" type="text" placeholder="Last Name" name="lastName"/>
-        {submitted && !Patvalues.lastName ? <span>Please enter Last Name</span>: null}
+        <input onChange={(e) => setLastname(e.target.value)} value={lastName} id="last-name" class="form-field" type="text" placeholder="Last Name" name="lastName"/>
+        {submitted && ! lastName ? <span>Please enter Last Name</span>: null}
         
-        <input onChange={handleEmailInputChange} value={Patvalues.email} id="email" class="form-field" type="text" placeholder="Email" name="email"/>
-        {submitted && !Patvalues.email ? <span>Please enter Email</span>: null}
+        <input onChange={(e) => setEmail(e.target.value)} value={email} id="email" class="form-field" type="text" placeholder="Email" name="email"/>
+        {submitted && ! email ? <span>Please enter Email</span>: null}
 
-        <input onChange={handleNumberInputChange} value={Patvalues.number} id="number" class="form-field" type="text" placeholder="Number" name="number"/>
-        {submitted && !Patvalues.number ? <span>Please enter Number</span>: null}
+        <input onChange={(e) => setNumber(e.target.value)} value={number} id="number" class="form-field" type="text" placeholder="Number" name="number"/>
+        {submitted && ! number ? <span>Please enter Number</span>: null}
 
-        <input onChange={handleIDInputChange} value={Patvalues.id} id="pat-id" class="form-field" type="text" placeholder="ID" name="id"/>
-        {submitted && !Patvalues.id ? <span>Please enter ID</span>: null}
+        <input onChange={(e) => setID(e.target.value)} value={id} id="pat-id" class="form-field" type="text" placeholder="ID" name="id"/>
+        {submitted && ! id ? <span>Please enter ID</span>: null}
 
-        <input onChange={handleCityInputChange} value={Patvalues.city} id="city" class="form-field" type="text" placeholder="City" name="city"/>
-        {submitted && !Patvalues.city ? <span>Please enter City</span>: null}
+        <input onChange={(e) => setCity(e.target.value)} value={city} id="city" class="form-field" type="text" placeholder="City" name="city"/>
+        {submitted && ! city ? <span>Please enter City</span>: null}
         
 
-        <input onChange={handleCountryInputChange} value={Patvalues.country} id="country" class="form-field" type="text" placeholder="Country" name="country"/>
-        {submitted && !Patvalues.country ? <span>Please enter Country</span>: null}
+        <input onChange={(e) => setCountry(e.target.value)} value={country} id="country" class="form-field" type="text" placeholder="Country" name="country"/>
+        {submitted && ! country ? <span>Please enter Country</span>: null}
 
         
         <button class="form-field" type="submit" >

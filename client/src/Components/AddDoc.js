@@ -12,54 +12,26 @@ function AddDoc() {
     setModal(!modal)
   }
 
-  const [Docvalues, setDocValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    number: "",
-    id: "",
-    city: "",
-    country: "",
-
-  });
-
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false)
 
-  const handleFirstNameInputChange = (event) => {
-    setDocValues({...Docvalues, firstName: event.target.value})
-  }
-
-  const handleLastNameInputChange = (event) => {
-    setDocValues({...Docvalues, lastName: event.target.value})
-  }
-
-  const handleEmailInputChange = (event) => {
-    setDocValues({...Docvalues, email: event.target.value})
-  }
-
-  const handleNumberInputChange = (event) => {
-    setDocValues({...Docvalues, number: event.target.value})
-  }
-
-  const handleIDInputChange = (event) => {
-    setDocValues({...Docvalues, id: event.target.value})
-  }
-
-  const handleCityInputChange = (event) => {
-    setDocValues({...Docvalues, city: event.target.value})
-  }
-
-  const handleCountryInputChange = (event) => {
-    setDocValues({...Docvalues, country: event.target.value})
-  }
+  const [firstName, setFirstname] = useState('');
+  const [lastName, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [number, setNumber] = useState('');
+  const [id, setID] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(Docvalues.firstName && Docvalues.lastName && Docvalues.email && Docvalues.number && Docvalues.id && Docvalues.city && Docvalues.country){
+    if(firstName && lastName && email && number && id && city && country){
       setValid(true);
     }
     setSubmitted(true);
+
+    const doc_profile = { firstName, lastName, email, number, id, city, country };
+    console.log(doc_profile);
     
   }
 
@@ -84,27 +56,27 @@ function AddDoc() {
       <form class="register-form" onSubmit={handleSubmit}>
         {submitted && valid ? <div className="success-message">Doctor Registered</div> : null}
         
-        <input onChange={handleFirstNameInputChange} value={Docvalues.firstName} id="first-name" class="form-field" type="text" placeholder="First Name" name="firstName"/>
-        {submitted && !Docvalues.firstName ? <span>Please enter First Name</span>: null}
+        <input onChange={(e) => setFirstname(e.target.value)} value={firstName} id="first-name" class="form-field" type="text" placeholder="First Name" name="firstName"/>
+        {submitted && ! firstName ? <span>Please enter First Name</span>: null}
 
-        <input onChange={handleLastNameInputChange} value={Docvalues.lastName} id="last-name" class="form-field" type="text" placeholder="Last Name" name="lastName"/>
-        {submitted && !Docvalues.lastName ? <span>Please enter Last Name</span>: null}
+        <input onChange={(e) => setLastname(e.target.value)} value={lastName} id="last-name" class="form-field" type="text" placeholder="Last Name" name="lastName"/>
+        {submitted && ! lastName ? <span>Please enter Last Name</span>: null}
         
-        <input onChange={handleEmailInputChange} value={Docvalues.email} id="email" class="form-field" type="text" placeholder="Email" name="email"/>
-        {submitted && !Docvalues.email ? <span>Please enter Email</span>: null}
+        <input onChange={(e) => setEmail(e.target.value)} value={email} id="email" class="form-field" type="text" placeholder="Email" name="email"/>
+        {submitted && ! email ? <span>Please enter Email</span>: null}
 
-        <input onChange={handleNumberInputChange} value={Docvalues.number} id="number" class="form-field" type="text" placeholder="Number" name="number"/>
-        {submitted && !Docvalues.number ? <span>Please enter Number</span>: null}
+        <input onChange={(e) => setNumber(e.target.value)} value={number} id="number" class="form-field" type="text" placeholder="Number" name="number"/>
+        {submitted && ! number ? <span>Please enter Number</span>: null}
 
-        <input onChange={handleIDInputChange} value={Docvalues.id} id="doc-id" class="form-field" type="text" placeholder="ID" name="id"/>
-        {submitted && !Docvalues.id ? <span>Please enter ID</span>: null}
+        <input onChange={(e) => setID(e.target.value)} value={id} id="doc-id" class="form-field" type="text" placeholder="ID" name="id"/>
+        {submitted && ! id ? <span>Please enter ID</span>: null}
 
-        <input onChange={handleCityInputChange} value={Docvalues.city} id="city" class="form-field" type="text" placeholder="City" name="city"/>
-        {submitted && !Docvalues.city ? <span>Please enter City</span>: null}
+        <input onChange={(e) => setCity(e.target.value)} value={city} id="city" class="form-field" type="text" placeholder="City" name="city"/>
+        {submitted && ! city ? <span>Please enter City</span>: null}
         
 
-        <input onChange={handleCountryInputChange} value={Docvalues.country} id="country" class="form-field" type="text" placeholder="Country" name="country"/>
-        {submitted && !Docvalues.country ? <span>Please enter Country</span>: null}
+        <input onChange={(e) => setCountry(e.target.value)} value={country} id="country" class="form-field" type="text" placeholder="Country" name="country"/>
+        {submitted && ! country ? <span>Please enter Country</span>: null}
         
         <button class="form-field" type="submit" >
           Register Doctor
