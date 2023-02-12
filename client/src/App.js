@@ -7,6 +7,7 @@ import DoctorDash from "./Components/DoctorDash";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DoctorDesk from "./Components/DoctorDesk";
 import PatientDesk from "./Components/PatientDesk";
+import ConsultationDesk from "./Components/ConsultationDesk";
 import { useEffect, useState } from "react";
 import { Web3Helper } from "./Helper/web3-helper";
 import { IPFS } from "./Helper/ipfs-helper";
@@ -46,6 +47,10 @@ function App() {
             <Route path="/DoctorDesk" element={<DoctorDesk />} />
 
             <Route path="/PatientDesk" element={<PatientDesk />} />
+
+            <Route path="/Consult" element={<ConsultationDesk />} />
+
+
           </Routes>
         </Router>
       </div>

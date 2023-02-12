@@ -10,10 +10,10 @@ function DoctorSidebar() {
         <div className='side__bar'>
             <ul className='sidebar__list'>
                 <li className='row'>
-                     <Link className='row-text' to="#">Dashboard</Link>
+                     <Link className='row-text' to="/DoctorDash">Dashboard</Link>
                 </li>
                 <li className='row'>
-                    <Link className='row-text' to="#">Consultations</Link>
+                    <Link className='row-text' to="/Consult">Consultations</Link>
                 </li>
             </ul>
         </div>
