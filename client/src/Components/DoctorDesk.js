@@ -14,7 +14,7 @@ function DoctorDesk()
     <div style={{display:'flex'}}>
         <AdminSidebar/>
       <div className='main-container'>
-          <Header/> 
+        <Header roles="Admin"/> 
         <div style={{display:'flex'}}>
           <AddDoc/>
           <DeleteDoc/>

@@ -13,7 +13,7 @@ function ConsultationDesk() {
          <Header roles="Doctor"/>
         <div style={{display:'grid'}}>
         <ConsultCard/> 
-        <ConsultCard/> 
+        <ConsultCard/>
         </div>
       </div>  
     </div> 

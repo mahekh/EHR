@@ -13,9 +13,8 @@ function PatientDesk() {
         <AdminSidebar/>
         
         <div className='main-container'>
-            <Header/> 
+          <Header roles="Admin"/> 
             <div style={{display:'flex'}}>  
-
               <AddPat/>
               <DeletePat/>
           </div>

@@ -5,6 +5,8 @@
   margin-top: 30px;
   height: 150px;
   width: 900px;
+  border-radius: 20px;
+  box-shadow: 0 2px 20px  #4da598 ;
 }
 
 .consultation-card{
@@ -24,7 +26,7 @@
 
 .consultation-description{
   /* border: 2px solid purple; */
-  margin-top: 10px;
+  margin-top: 5px;
   font-family: 'Playfair Display';
 }
 
@@ -34,7 +36,7 @@
   border-radius: 20%;
   /* border: 2px solid black; */
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .pat-icon{
@@ -46,15 +48,9 @@
 .record-btns{
   /* border: 2px solid purple; */
   display: flex;
-  gap: 2rem;
-  margin-left: 30px;
+  
+  margin-left: 100px;
   margin-top: 40px;
-}
-
-.view-rec{
-
-  height: 60px;
-  width: 100px;
 }
 
 .add-rec{

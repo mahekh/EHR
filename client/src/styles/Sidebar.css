@@ -1,8 +1,11 @@
 .side__bar{
 
-  height: 96vh;
+  height: 98vh;
   width: 250px;
   background-color: #323f52;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   /* border: red 2px solid; */
 }
 

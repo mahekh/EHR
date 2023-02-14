@@ -28,8 +28,7 @@ function ConsultCard() {
             </div>
 
             <div className='record-btns'>
-              <button className='view-rec'>VIEW</button>
-              <button className='add-rec'>ADD</button>
+              <button className='add-rec'>CONSULT</button>
             </div>
 
         </div>

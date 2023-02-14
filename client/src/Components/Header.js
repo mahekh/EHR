@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 export default function Navbar(props) {
   return (
     <Nav>
@@ -16,6 +17,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   color: black;
+  
   .title {
     margin-left:30px;
     h1 {

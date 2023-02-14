@@ -1,7 +1,7 @@
 import React from 'react'
-import ConsultCard from './ConsultCard';
 import DoctorSidebar from './DoctorSidebar';
 import Header from './Header';
+import MedicalReport from './MedicalReport';
 
 
 
@@ -10,9 +10,15 @@ function DoctorDash() {
 
         <>
         <div style={{display:'flex'}}>
+      
             <DoctorSidebar/>
+            <div className='main-container'>
             <Header roles="Doctor"/>
-        </div>
+            <div style={{display:'grid'}}>
+            <MedicalReport/>
+            </div>
+            </div>  
+        </div> 
         </>
      );
 
