@@ -1,55 +1,64 @@
-.wrapper{
+.consultation-wrapper{
 
-    height: 200px;
-    width: 900px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 16 rem));
-    gap: 2rem;
-    justify-content: center;
-    border: blue 2px solid;
+  border: 2px solid #4da598;
+  margin-left: 30px;
+  margin-top: 30px;
+  height: 150px;
+  width: 900px;
 }
 
-.card{
-    height: 200px;
-    width: 900px;
-    border: red 2px solid;
-    overflow: hidden;
-    box-shadow: 0 2px 20px  #4da598 ;
-    border-radius: 0.2 rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: 200ms ease-in;
+.consultation-card{
+  display: flex;
+  /* border: 2px solid blue; */
+}
+
+.consultation-body{
+  /* border: 2px solid green; */
+  margin-left: 30px;
+  margin-top: 25px;
+  /* gap: 2rem; */
 
 }
 
-.card-image {
-    height: 12rem;
-    width: 100%;
-    object-fit: cover;
-  }
 
-  .card-title {
-    padding: 1rem;
-  }
 
-  .card-description {
-    padding: 0 1rem;
-  }
+.consultation-description{
+  /* border: 2px solid purple; */
+  margin-top: 10px;
+  font-family: 'Playfair Display';
+}
 
-  .add-btn {
-    padding: 1rem;
-    font-family: inherit;
-    font-weight: bold;
-    font-size: 1rem;
-    margin: 1rem;
-    border: 2px solid  #4da598;
-    background: transparent;
-    color:  #4da598;
-    border-radius: 0.2rem;
-    transition: background 200ms ease-in, color 200ms ease-in;
-    cursor: pointer;
+.patient-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 20%;
+  /* border: 2px solid black; */
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.pat-icon{
+  width: 100px;
+  height: 100px;
+  border-radius: 20%;
+}
+
+.record-btns{
+  /* border: 2px solid purple; */
+  display: flex;
+  gap: 2rem;
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.view-rec{
+
+  height: 60px;
+  width: 100px;
+}
+
+.add-rec{
+
+  height: 60px;
+  width: 100px;
 }

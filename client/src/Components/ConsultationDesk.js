@@ -11,7 +11,8 @@ function ConsultationDesk() {
         <DoctorSidebar/>
          <div className='main-container'>
          <Header roles="Doctor"/>
-        <div style={{display:'flex'}}>
+        <div style={{display:'grid'}}>
+        <ConsultCard/> 
         <ConsultCard/> 
         </div>
       </div>  
