@@ -35,7 +35,7 @@ function MedicalReport() {
         </div>
 
         <div className='medical-body'>
-            <h2>Medical Form</h2>
+            <h2>Patient Medical Record</h2>
             
         </div>
 
