@@ -9,3 +9,26 @@
     
 
 }
+
+.med-title{
+    margin-top: 15px;
+    text-align: center;
+
+}
+
+.diagnosis{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.diagnosis-sec{
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 200px;
+    width: 900px;
+}
+
+.medications{
+    margin-left: 30px;
+    margin-top: 10px;
+}

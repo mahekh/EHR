@@ -1,4 +1,5 @@
 import React from 'react'
+// import MedicalReportForm from './MedicalReportForm';
 import DoctorSidebar from './DoctorSidebar';
 import Header from './Header';
 import MedicalReport from './MedicalReport';
