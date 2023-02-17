@@ -7,6 +7,8 @@ function AdminSidebar() {
 
     return (
     <>
+        <body className='sidebar-body'>
+            
         <div className='side__bar'>
             <ul className='sidebar__list'>
                 <li className='row'>
@@ -20,6 +22,7 @@ function AdminSidebar() {
                 </li>
             </ul>
         </div>
+        </body>
     </>    
     );
 }

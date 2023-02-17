@@ -53,3 +53,9 @@
   button:disabled {
     cursor: default;
   }
+
+  .close-modal{
+    position: absolute;
+    background: #4da598;
+    right: 60px;
+  }
