@@ -1,14 +1,22 @@
 import React from 'react'
 import PatientSidebar from './PatientSidebar';
 import Header from './Header';
+import ViewReport from './ViewReport';
 
 function PatientDash() {
     return ( 
     <>   
+
         <div style={{display:'flex'}}>
-        <PatientSidebar/> 
-        <Header roles="Patient"/>
-        </div>
+      
+            <PatientSidebar/> 
+            <div className='main-container'>
+            <Header roles="Patient"/>
+            <div style={{display:'grid'}}>
+            <ViewReport/>
+            </div>
+            </div>  
+        </div> 
 
     </>     
      );

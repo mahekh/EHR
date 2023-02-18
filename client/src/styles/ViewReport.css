@@ -1,0 +1,132 @@
+.display-medical{
+
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 800px;
+    width: 950px;
+    background-color: #EDEDED;
+    border-radius: 20px;
+}
+
+.display-weight {
+
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-height {
+
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-bp {
+
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-diagnosis{
+    background-color: white;
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 200px;
+    width: 900px;
+}
+
+.display-med1{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-freq1{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-days1{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-med2{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-freq2{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-days2{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-test{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    width: 300px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+.display-followup{
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    width: 300px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
