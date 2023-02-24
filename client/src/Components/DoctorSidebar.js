@@ -16,7 +16,7 @@ function DoctorSidebar() {
                      <Link className='row-text' to="#">View Reports</Link>
                 </li>
                 <li className='row'>
-                    <Link className='row-text' to="/Consult">Consultations</Link>
+                    <Link className='row-text' to="/ConsultationDesk">Consultations</Link>
                 </li>
             </ul>
         </div>

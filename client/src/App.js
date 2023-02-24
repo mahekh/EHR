@@ -1,6 +1,5 @@
 import "./App.css";
 import Home from "./Components/Home";
-// import Header from './Components/Header';
 import AdminDash from "./Components/AdminDash";
 import PatientDash from "./Components/PatientDash";
 import DoctorDash from "./Components/DoctorDash";
@@ -12,6 +11,7 @@ import { useEffect, useState } from "react";
 import { Web3Helper } from "./Helper/web3-helper";
 import { IPFS } from "./Helper/ipfs-helper";
 import { BiLogIn } from "react-icons/bi";
+import ViewReportSection from "./Components/ViewReportSection";
 
 function App() {
   const [account, setAccount] = useState();
@@ -48,7 +48,9 @@ function App() {
 
             <Route path="/PatientDesk" element={<PatientDesk />} />
 
-            <Route path="/Consult" element={<ConsultationDesk />} />
+            <Route path="/ConsultationDesk" element={<ConsultationDesk/>} />
+
+            <Route path="/ViewReportSection" element={<ViewReportSection/>} />
 
 
           </Routes>

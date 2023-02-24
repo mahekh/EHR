@@ -183,6 +183,8 @@ function MedicalReport() {
 
                 <button className='save'>SAVE REPORT</button>
             </form>
+
+            
         </div>
 
         

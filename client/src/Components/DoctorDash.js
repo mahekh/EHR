@@ -16,7 +16,7 @@ function DoctorDash() {
             <div className='main-container'>
             <Header roles="Doctor"/>
             <div style={{display:'grid'}}>
-            <MedicalReport/>
+                <p>profile page</p>
             </div>
             </div>  
         </div> 

@@ -10,10 +10,10 @@ function PatientSidebar() {
         <div className='side__bar'>
             <ul className='sidebar__list'>
                 <li className='row'>
-                     <Link className='row-text' to="#">Dashboard</Link>
+                     <Link className='row-text' to="/PatientDash">Dashboard</Link>
                 </li>
                 <li className='row'>
-                    <Link className='row-text' to="#">Reports</Link>
+                    <Link className='row-text' to="/ViewReportSection">Reports</Link>
                 </li>
             </ul>
         </div>

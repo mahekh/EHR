@@ -49,6 +49,7 @@ function AddDoc() {
         <button className='add-btn' onClick={toggleModal}>Add Doctor</button>
     </div>
     </div>
+    
     {modal && (
       <div className='modal'>
       <div className="overlay">
