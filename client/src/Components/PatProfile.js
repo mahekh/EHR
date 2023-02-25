@@ -2,10 +2,11 @@ import React from 'react'
 import "../styles/DocProfile.css";
 import paticon from "../assets/pat-icon.png";
 
-function Docprofile() {
+function PatProfile() {
   return (
+    
     <>
-        <div className='main-profile' style={{display: 'flex'}}>
+      <div className='main-profile' style={{display: 'flex'}}>
           
 
           <div className='patient-img'>
@@ -80,4 +81,4 @@ function Docprofile() {
   )
 }
 
-export default Docprofile
+export default PatProfile

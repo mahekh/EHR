@@ -1,0 +1,136 @@
+.main-profile{
+
+    border: 2px solid #4da598;
+    /* box-shadow: 0 2px 20px  #4da598 ; */
+    margin-left: 30px;
+    margin-top: 20px;
+    height: 290px;
+    width: 950px;
+    background-color: #EDEDED;
+    border-radius: 20px;
+}
+
+.profile{
+    /* border: 2px solid purple; */
+    margin-left: 30px;
+    margin-top: 22px;
+}
+
+.name-profile{
+    /* border: 2px solid purple; */
+    font-size: x-large;
+}
+
+.full-name{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.name{
+
+    margin-left: 30px;
+    font-weight: bold;
+    color: #4da598;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-id{
+    /* border: 2px solid purple; */
+    font-size: x-large;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.title-id{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-doc-id{
+
+    margin-left: 34px;
+    font-weight: bold;
+    color: #4da598;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.prof-email{
+    /* border: 2px solid purple; */
+    font-size: x-large;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.title-email{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-doc-email{
+
+    margin-left: 75px;
+    font-weight: bold;
+    color: #4da598;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-number{
+    /* border: 2px solid purple; */
+    font-size: x-large;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.title-number{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-doc-number{
+
+    margin-left: 50px;
+    font-weight: bold;
+    color: #4da598;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-city{
+    /* border: 2px solid purple; */
+    font-size: x-large;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.title-city{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-doc-city{
+
+    margin-left: 93px;
+    font-weight: bold;
+    color: #4da598;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-country{
+    /* border: 2px solid purple; */
+    font-size: x-large;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.title-country{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.prof-doc-country{
+
+    margin-left: 50px;
+    font-weight: bold;
+    color: #4da598;
+    font-family: 'Times New Roman', Times, serif;
+}

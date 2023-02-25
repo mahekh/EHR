@@ -1,4 +1,5 @@
 import React from 'react'
+import Docprofile from './Docprofile';
 // import MedicalReportForm from './MedicalReportForm';
 import DoctorSidebar from './DoctorSidebar';
 import Header from './Header';
@@ -16,7 +17,7 @@ function DoctorDash() {
             <div className='main-container'>
             <Header roles="Doctor"/>
             <div style={{display:'grid'}}>
-                <p>profile page</p>
+                <Docprofile/>
             </div>
             </div>  
         </div> 

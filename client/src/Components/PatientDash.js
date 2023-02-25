@@ -1,6 +1,8 @@
 import React from 'react'
 import PatientSidebar from './PatientSidebar';
 import Header from './Header';
+import PatProfile from './PatProfile';
+
 
 function PatientDash() {
     return ( 
@@ -12,7 +14,7 @@ function PatientDash() {
             <div className='main-container'>
             <Header roles="Patient"/>
             <div style={{display:'grid'}}>
-            <p>Profile page</p>
+            <PatProfile/>
             </div>
             </div>  
         </div> 
