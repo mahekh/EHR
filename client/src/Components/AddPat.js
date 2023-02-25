@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import addpatient from "../assets/add-patient.jpg";
+import { AddPatientfunction } from '../services/adminService';
 
 
 function AddPat() {
@@ -34,6 +35,10 @@ function AddPat() {
 
     const patient_profile = { firstName, lastName, email, number, id, city, country };
     console.log(patient_profile);
+
+    AddPatientfunction(patient_profile).then(r => {
+      console.log("patient is added");
+    })
     
   }
 

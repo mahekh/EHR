@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import adddoc from "../assets/add-doc.jpg";
+import { addDoctorfunction } from '../services/adminService';
 
 
 function AddDoc() {
@@ -32,6 +33,10 @@ function AddDoc() {
 
     const doc_profile = { firstName, lastName, email, number, id, city, country };
     console.log(doc_profile);
+
+    addDoctorfunction(doc_profile).then(r => {
+      console.log("doctor is added");
+    })
     
   }
 

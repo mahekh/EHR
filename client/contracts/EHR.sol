@@ -19,9 +19,19 @@ contract EHR {
         string patient_ipfs_hash;
     }
 
+    struct MedicalRecords{
+
+        string medical_ipfs_hash;
+
+    }
+
     // for a given address, it will return the struct for doctor or patient (mapping)
     mapping(address => Doctor) doctormap;
     mapping(address => Patient) patientmap;
+    mapping(address => MedicalRecords) recordmap;
+
+    address[] allDocList;
+    address[] allPatList;
 
     // whoever deploys the contracts is the admin
     constructor() {
@@ -40,6 +50,7 @@ contract EHR {
         doc.doctor_ipfs_hash = docHash;
 
         doctor_role.add(docId); // this will add doctor role
+        allDocList.push(docId); // push doc id to array all doc list
     }
 
     function addPatient(address patientId, string memory patientHash) public {
@@ -49,5 +60,76 @@ contract EHR {
         pat.patient_ipfs_hash = patientHash;
 
         patient_role.add(patientId); // this will add patient role
+
+        allPatList.push(patientId);// push pat id to array all pat list
     }
+
+    function isDoctor(address d_id) public view returns (bool){
+
+        return doctor_role.has(d_id);
+
+    }
+
+     function isPatient(address p_id) public view returns (bool){
+
+        return patient_role.has(p_id);
+
+    }
+
+    function getDocinfo(address id) public view returns(string memory){
+
+        return doctormap[id].doctor_ipfs_hash;
+
+    }
+
+    function getPatinfo(address id) public view returns(string memory){
+
+        return patientmap[id].patient_ipfs_hash;
+
+    }
+
+    function getAllDoc() public view returns(Doctor[] memory){
+
+        Doctor[] memory allDocs = new Doctor[](allDocList.length); //creating temporary array 
+
+        uint i=0;
+
+        for (i = 0; i <= allDocList.length-1; i++) {
+
+            allDocs[i]=doctormap[allDocList[i]]; //filling alldocs with the addresses in alldocslist
+            
+        }
+
+        return allDocs;
+    }
+
+     function getAllPat() public view returns(Patient[] memory){
+
+        Patient[] memory allPat = new Patient[](allPatList.length); //creating temporary array 
+
+        uint i=0;
+
+        for (i = 0; i <= allPatList.length-1; i++) {
+
+            allPat[i]=patientmap[allPatList[i]]; //filling allpat with the addresses in allpatlist
+            
+        }
+
+        return allPat;
+    }
+
+    function addMedicalRecord(address patid, string memory pathash) public {
+
+        require(doctor_role.has(msg.sender), "Only doctors can add records");
+
+        MedicalRecords storage medrecord = recordmap[patid];
+        medrecord.medical_ipfs_hash = pathash;
+    } 
+
+    function viewMedicalRecord(address patid) public view returns(string memory){
+
+        return recordmap[patid].medical_ipfs_hash;
+    }
+
+
 }
