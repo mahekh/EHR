@@ -20,6 +20,16 @@ function AdminSidebar() {
                 <li className='row'>
                     <Link className='row-text' to="/PatientDesk">Patient Desk</Link>
                 </li>
+                <li className='row'>
+                    <Link className='row-text' to="/DoctorList">Doctors List</Link>
+                </li>
+                <li className='row'>
+                    <Link className='row-text' to="/PatientList">Patients List</Link>
+                </li>
+                
+
+
+
             </ul>
         </div>
         </div>

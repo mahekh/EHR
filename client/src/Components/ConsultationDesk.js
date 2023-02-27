@@ -30,8 +30,7 @@ const ConsultationDesk = () => {
         <div className="main-container">
           <Header roles="Doctor" />
           <div style={{ display: "grid" }}>
-            {/* <ConsultCard />
-            <ConsultCard /> */}
+            <ConsultCard />
 
           </div>
         </div>

@@ -12,6 +12,9 @@ import { Web3Helper } from "./Helper/web3-helper";
 import { IPFS } from "./Helper/ipfs-helper";
 import { BiLogIn } from "react-icons/bi";
 import ViewReportSection from "./Components/ViewReportSection";
+import DoctorList from "./Components/DoctorList";
+import PatientList from "./Components/PatientList";
+import DoctorView from "./Components/DoctorView";
 
 function App() {
   const [account, setAccount] = useState();
@@ -52,6 +55,11 @@ function App() {
 
             <Route path="/ViewReportSection" element={<ViewReportSection/>} />
 
+            <Route path="/DoctorList" element={<DoctorList/>} />
+
+            <Route path="/PatientList" element={<PatientList/>} />
+
+            <Route path="/DoctorView" element={<DoctorView/>} />
 
           </Routes>
         </Router>

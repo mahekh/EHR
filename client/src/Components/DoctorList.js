@@ -1,13 +1,13 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar';
+import DoctorCard from './DoctorCard';
 import Header from './Header'
-import AddDoc from './AddDoc'
-import DeleteDoc from './DeleteDoc';
 
 
 
 
-function DoctorDesk() 
+
+function DoctorList() 
 {
   return (
     <>
@@ -15,9 +15,10 @@ function DoctorDesk()
         <AdminSidebar/>
       <div className='main-container'>
         <Header roles="Admin"/> 
-        <div style={{display:'flex'}}>
-          <AddDoc/>
-          {/* <DeleteDoc/> */}
+        <div style={{display:'grid'}}>
+          <p style={{marginLeft:'30px', marginTop:'20px', fontWeight:'bolder',fontFamily:'Permanent Marker',fontSize:'20px'}}>The list of Doctors can be found here</p>
+          <DoctorCard/>
+
         </div>
       </div>   
 
@@ -30,4 +31,4 @@ function DoctorDesk()
 
 
 
-export default DoctorDesk;
+export default DoctorList;

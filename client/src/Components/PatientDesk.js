@@ -16,7 +16,7 @@ function PatientDesk() {
           <Header roles="Admin"/> 
             <div style={{display:'flex'}}>  
               <AddPat/>
-              <DeletePat/>
+              {/* <DeletePat/> */}
           </div>
         </div>   
     </div> 
