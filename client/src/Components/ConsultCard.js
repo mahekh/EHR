@@ -78,8 +78,8 @@ function ConsultCard(props) {
 
             <div className="consultation-description">
               <p className="patient-id">Patient ID: {props.details.id}</p>
-              <p className="patient-phone">Contact: 0504752853</p>
-              <p className="patient-email">Email: test@test.com</p>
+              <p className="patient-phone">Contact: {props.details.number}</p>
+              <p className="patient-email">Email: {props.details.email}</p>
             </div>
           </div>
 
@@ -105,16 +105,16 @@ function ConsultCard(props) {
                     <div className="consultation-body">
                       <div className="consultation-title">
                         <h2 className="patient-name">
-                          Patient Name: First Name Last Name
+                          Patient Name: {props.details.firstName} {props.details.lastName}
                         </h2>
                       </div>
 
                       <div className="consultation-description">
                         <p className="patient-id">
-                          Patient ID: 0x6Da0704CA1472f07AfA0046766370f854D20D86C
+                          Patient ID: {props.details.id}
                         </p>
-                        <p className="patient-phone">Contact: 0504752853</p>
-                        <p className="patient-email">Email: test@test.com</p>
+                        <p className="patient-phone">Contact: {props.details.number}</p>
+                        <p className="patient-email">Email: {props.details.email}</p>
                       </div>
                     </div>
                   </div>

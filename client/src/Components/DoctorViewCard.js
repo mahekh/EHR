@@ -38,10 +38,10 @@ function DoctorViewCard(props) {
 
             <div className="consultation-description">
               <p className="patient-id">
-                Patient ID: 0x6Da0704CA1472f07AfA0046766370f854D20D86C
+                Patient ID: {props.details.id}
               </p>
-              <p className="patient-phone">Contact: 0504752853</p>
-              <p className="patient-email">Email: test@test.com</p>
+              <p className="patient-phone">Contact: {props.details.number}</p>
+              <p className="patient-email">Email: {props.details.email}</p>
             </div>
           </div>
 
@@ -71,11 +71,11 @@ function DoctorViewCard(props) {
                 </div>
 
                 <div className="display-height">
-                  <p>Height: 180 cm</p>
+                  <p>Height: {medRecord.record.height}</p>
                 </div>
 
                 <div className="display-bp">
-                  <p>Blood Pressure: 80/110</p>
+                  <p>Blood Pressure: {medRecord.record.bp}</p>
                 </div>
               </div>
 
@@ -93,29 +93,29 @@ function DoctorViewCard(props) {
 
               <div className="medication-1" style={{ display: "flex" }}>
                 <div className="display-med1">
-                  <p>Medicine 1</p>
+                  <p>{medRecord.record.med1}</p>
                 </div>
 
                 <div className="display-freq1">
-                  <p>Frequency: 1-1-1</p>
+                  <p>Frequency: {medRecord.record.freq1}</p>
                 </div>
 
                 <div className="display-days1">
-                  <p>Days: 2</p>
+                  <p>Days: {medRecord.record.days1}</p>
                 </div>
               </div>
 
               <div className="medication-2" style={{ display: "flex" }}>
                 <div className="display-med2">
-                  <p>Medicine 1</p>
+                  <p>{medRecord.record.med2}</p>
                 </div>
 
                 <div className="display-freq2">
-                  <p>Frequency: 1-1-1</p>
+                  <p>Frequency: {medRecord.record.freq2}</p>
                 </div>
 
                 <div className="display-days2">
-                  <p>Days: 2</p>
+                  <p>Days: {medRecord.record.days2}</p>
                 </div>
               </div>
 
@@ -124,7 +124,7 @@ function DoctorViewCard(props) {
               </div>
 
               <div className="display-test">
-                <p>Blood Test</p>
+                <p>{medRecord.record.test}</p>
               </div>
 
               <div className="medications">
@@ -132,7 +132,7 @@ function DoctorViewCard(props) {
               </div>
 
               <div className="display-test">
-                <p>After 1 week</p>
+                <p>{medRecord.record.followup}</p>
               </div>
             </div>
 
