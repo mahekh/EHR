@@ -1,5 +1,6 @@
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
 
 const web3Helper = new Web3Helper();
 
@@ -44,3 +45,71 @@ export const AddPatientfunction = (data) => {
       });
     });
   };
+
+export const getAllpatientsAdmin = () => {
+
+  let patientDetails = [];
+
+  return new Promise((resolve, reject) => {
+    web3Helper.getContracts().then(c => {
+      c.methods.getAllPat().call().then(listOfPateints => {
+        listOfPateints.forEach((hash) => {
+          axios
+            .get("http://localhost:8080/ipfs/" + hash)
+            .then(function (response) {
+              // handle success
+              patientDetails.push(response.data);
+              console.log(response);
+              resolve(patientDetails);
+            })
+            .catch(function (error) {
+              // handle error
+              console.log(error);
+            })
+            .finally(function () {
+              // always executed
+            });
+          if (listOfPateints.length === patientDetails.length)
+            resolve(patientDetails);
+        });
+      });
+      })
+    })
+    
+
+
+}
+
+export const getAllDoctorsAdmin = () => {
+
+  let DoctorDetails = [];
+
+  return new Promise((resolve, reject) => {
+    web3Helper.getContracts().then(c => {
+      c.methods.getAllDoc().call().then(listOfDoctors => {
+        listOfDoctors.forEach((doc) => {
+          axios
+            .get("http://localhost:8080/ipfs/" + doc.doctor_ipfs_hash)
+            .then(function (response) {
+              // handle success
+              DoctorDetails.push(response.data);
+              console.log(response);
+              resolve(DoctorDetails);
+            })
+            .catch(function (error) {
+              // handle error
+              console.log(error);
+            })
+            .finally(function () {
+              // always executed
+            });
+          if (listOfDoctors.length === DoctorDetails.length)
+            resolve(DoctorDetails);
+        });
+      });
+      })
+    })
+  
+
+
+}

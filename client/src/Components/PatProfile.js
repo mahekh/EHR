@@ -1,8 +1,27 @@
 import React from 'react'
 import "../styles/DocProfile.css";
 import paticon from "../assets/pat-icon.png";
+import { getPatientDetails } from '../services/patientService';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function PatProfile() {
+
+  const [patProf, setpatProf] = useState({});
+
+  useEffect(() => {
+    getPatientDetails().then(p => {
+      console.log(p);
+      setpatProf(p);
+    })
+  
+    return () => {
+      
+    }
+  }, [])
+  
+
+
   return (
     
     <>
@@ -21,17 +40,17 @@ function PatProfile() {
               </div>
 
               <div className='name'>
-                First Name Last Name
+                {patProf.firstName} {patProf.lastName}
               </div>
             </div>
 
             <div className='prof-id' style={{display: 'flex'}}>
               <div className='title-id'>
-                <p>Doctor ID: </p>
+                <p>Patient ID:  </p>
               </div>
 
               <div className='prof-doc-id'>
-                <p>0x4BC80A001C0836641E3104B6a6F50e552BC103fB</p>
+                <p>{patProf.id}</p>
               </div>
             </div>
 
@@ -41,7 +60,7 @@ function PatProfile() {
               </div>
 
               <div className='prof-doc-email'>
-                <p>test@test.com</p>
+                <p>{patProf.email}</p>
               </div>
             </div>
 
@@ -51,7 +70,7 @@ function PatProfile() {
               </div>
 
               <div className='prof-doc-number'>
-                <p>0544278345</p>
+                <p>{patProf.number}</p>
               </div>
             </div>
 
@@ -61,7 +80,7 @@ function PatProfile() {
               </div>
 
               <div className='prof-doc-city'>
-                <p>Dubai</p>
+                <p>{patProf.city}</p>
               </div>
             </div>
 
@@ -71,7 +90,7 @@ function PatProfile() {
               </div>
 
               <div className='prof-doc-country'>
-                <p>UAE</p>
+                <p>{patProf.country}</p>
               </div>
             </div>
 

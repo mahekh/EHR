@@ -1,8 +1,27 @@
 import React from 'react'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { viewMedicalRecord } from '../services/patientService';
 import "../styles/ViewReport.css";
 
 
 function ViewReport() {
+
+    const [patMedrec, setpatMedrec] = useState({})
+
+    useEffect(() => {
+      viewMedicalRecord().then(v => {
+        setpatMedrec(v)
+        console.log(v)
+      })
+      return () => {
+        
+      }
+    }, [])
+    
+
+
+
   return (
     <>
         <div className='display-medical'>
@@ -16,15 +35,15 @@ function ViewReport() {
 
             <div style={{display: 'flex'}}>
                 <div className='display-weight'>
-                    <p>Weight: 80 Kgs</p>
+                    <p>Weight: {patMedrec.record.weight}</p>
                 </div>
 
                 <div className='display-height'>
-                    <p>Height: 180 cm</p>
+                    <p>Height: {patMedrec.record.height}</p>
                 </div>
 
                 <div className='display-bp'>
-                    <p>Blood Pressure: 80/110</p>
+                    <p>Blood Pressure: {patMedrec.record.bp}</p>
                 </div>
             </div>
 
@@ -36,7 +55,7 @@ function ViewReport() {
             </div>
 
             <div className='display-diagnosis'>
-                <p>fever, cold</p>
+                <p>{patMedrec.record.diagnosis}</p>
             </div>
 
             
@@ -48,30 +67,30 @@ function ViewReport() {
             <div className='medication-1' style={{display: 'flex'}}>
 
                 <div className='display-med1'>
-                    <p>Medicine 1</p>
+                    <p>{patMedrec.record.med1}</p>
                 </div>
 
                 <div className='display-freq1'>
-                    <p>Frequency: 1-1-1</p>
+                    <p>Frequency: {patMedrec.record.freq1}</p>
                 </div>
 
                 <div className='display-days1'>
-                    <p>Days: 2</p>
+                    <p>Days: {patMedrec.record.days1}</p>
                 </div>
 
             </div>
 
             <div className='medication-2' style={{display:'flex'}}>
                     <div className='display-med2'>
-                        <p>Medicine 1</p>
+                        <p>{patMedrec.record.med2}</p>
                     </div>
 
                     <div className='display-freq2'>
-                        <p>Frequency: 1-1-1</p>
+                        <p>Frequency: {patMedrec.record.freq2}</p>
                     </div>
 
                     <div className='display-days2'>
-                        <p>Days: 2</p>
+                        <p>Days: {patMedrec.record.days2}</p>
                     </div>
             
             </div>
@@ -81,7 +100,7 @@ function ViewReport() {
             </div>
 
             <div className='display-test'>
-                <p>Blood Test</p>
+                <p>{patMedrec.record.test}</p>
             </div>
 
             <div className='medications'>
@@ -89,7 +108,7 @@ function ViewReport() {
             </div>
 
             <div className='display-test'>
-                <p>After 1 week</p>
+                <p>{patMedrec.record.followup}</p>
             </div>
 
         </div>

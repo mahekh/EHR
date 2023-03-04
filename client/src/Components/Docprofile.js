@@ -1,8 +1,27 @@
 import React from 'react'
 import "../styles/DocProfile.css";
 import paticon from "../assets/pat-icon.png";
+import { getDoctorDetails } from '../services/doctorService';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function Docprofile() {
+
+  const [docDetails, setdocDetails] = useState({})
+
+  useEffect(() => {
+    getDoctorDetails().then(d => {
+      setdocDetails(d);
+      console.log(d);
+    })
+  
+    return () => {
+      
+    }
+  }, [])
+  
+
+
   return (
     <>
         <div className='main-profile' style={{display: 'flex'}}>
@@ -20,7 +39,7 @@ function Docprofile() {
               </div>
 
               <div className='name'>
-                First Name Last Name
+                {docDetails.firstName} {docDetails.lastName}
               </div>
             </div>
 
@@ -30,7 +49,7 @@ function Docprofile() {
               </div>
 
               <div className='prof-doc-id'>
-                <p>0x4BC80A001C0836641E3104B6a6F50e552BC103fB</p>
+                <p>{docDetails.id}</p>
               </div>
             </div>
 
@@ -40,7 +59,7 @@ function Docprofile() {
               </div>
 
               <div className='prof-doc-email'>
-                <p>test@test.com</p>
+                <p>{docDetails.email}</p>
               </div>
             </div>
 
@@ -50,7 +69,7 @@ function Docprofile() {
               </div>
 
               <div className='prof-doc-number'>
-                <p>0544278345</p>
+                <p>{docDetails.number}</p>
               </div>
             </div>
 
@@ -60,7 +79,7 @@ function Docprofile() {
               </div>
 
               <div className='prof-doc-city'>
-                <p>Dubai</p>
+                <p>{docDetails.city}</p>
               </div>
             </div>
 
@@ -70,7 +89,7 @@ function Docprofile() {
               </div>
 
               <div className='prof-doc-country'>
-                <p>UAE</p>
+                <p>{docDetails.country}</p>
               </div>
             </div>
 

@@ -126,3 +126,29 @@ export const viewMedicalRecord = (id) => {
       });
     });
 };
+
+export const getDoctorDetails = () => {
+
+  return new Promise((resolve, reject) => {
+    web3Helper.getContracts().then((c) => {
+        web3Helper.getCurrentAccount().then(id => {
+            c.methods.getDocinfo(id).call().then(hash => {
+                axios
+                .get("http://localhost:8080/ipfs/" + hash)
+                .then(function (response) {
+                  // handle success
+                  resolve(response.data);
+                })
+                .catch(function (error) {
+                  // handle error
+                  console.log(error);
+                })
+                .finally(function () {
+                  // always executed
+                });
+        
+                })
+            })
+        })
+  });
+};
