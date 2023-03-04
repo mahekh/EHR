@@ -1,9 +1,21 @@
 import "../styles/ConsultCard.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from 'react'
+import { deletePatientfunction } from "../services/adminService";
 
 
-function PatientCard() {
+function PatientCard(props) {
+
+  function handleDelete (id) {
+
+    deletePatientfunction(id).then(r => {
+      console.log("patient deleted")
+      window.location.reload()
+    })
+
+  }
+
+
   return (
     <>
         <div className='consultation-wrapper'>
@@ -16,19 +28,19 @@ function PatientCard() {
             <div className='consultation-body'>
                 
                 <div className='consultation-title'>
-                  <h2 className='patient-name'>Patient Name: First Name Last Name</h2>
+                  <h2 className='patient-name'>Patient Name: {props.details.firstName} {props.details.lastName} </h2>
                 </div>
 
                 <div className='consultation-description'>
-                  <p className='patient-id'>Patient ID: 0x6Da0704CA1472f07AfA0046766370f854D20D86C</p>
-                  <p className='patient-phone'>Contact: 0504752853</p>
-                  <p className='patient-email'>Email: test@test.com</p>
+                  <p className='patient-id'>Patient ID: {props.details.id}</p>
+                  <p className='patient-phone'>Contact: {props.details.number}</p>
+                  <p className='patient-email'>Email: {props.details.email}</p>
                 </div>
             
             </div>
 
             <div className='record-btns'>
-              <button className='add-rec'>DELETE</button>
+              <button className='add-rec' onClick ={ () => handleDelete(props.details.id)}>DELETE</button>
             </div>
 
         </div>

@@ -1,80 +1,90 @@
-import React from 'react'
-import AdminSidebar from './AdminSidebar';
-import Header from './Header';
+import React from "react";
+import AdminSidebar from "./AdminSidebar";
+import Header from "./Header";
 import styled from "styled-components";
 import { FaStethoscope } from "react-icons/fa";
 import { IoStatsChart } from "react-icons/io5";
 import { BiGroup } from "react-icons/bi";
 import { FiActivity } from "react-icons/fi";
-
-
+import { useEffect } from "react";
+import { useState } from "react";
+import { isAdmin } from "../services/adminService";
 
 function AdminDash() {
-    return ( 
-<>
-    <div style={{display:'flex'}}>
-        <AdminSidebar/>
-    <div className='main-container'>
-    <Header roles="Admin"/> 
-    <Section className='section'>
+  const [admin, setadmin] = useState(false);
 
-      <div className="admin-info ">
-        <div className="content">
-          <h5>Total number of Doctors</h5>
-          <h2>5</h2>
-        </div>
-        <div className="logo">
-          <FaStethoscope />
-        </div>
-      </div>
+  useEffect(() => {
+    isAdmin().then((ad) => {
+      setadmin(ad);
+      console.log(ad)
+    });
 
-      <div className="admin-info">
-        <div className="logo">
-          <IoStatsChart />
-        </div>
-        <div className="content">
-          <h5>Total number of Patients</h5>
-          <h2>10</h2>
-        </div>
-      </div>
+    return () => {};
+  }, []);
 
-      <div className="admin-info">
-        <div className="logo">
-          <BiGroup />
-        </div>
-        <div className="content">
-          <h5>New Users</h5>
-          <h2>3</h2>
-        </div>
-      </div>
+  return (
+    <>
+      {admin ? (
+        <div style={{ display: "flex" }}>
+          <AdminSidebar />
+          <div className="main-container">
+            <Header roles="Admin" />
+            <Section className="section">
+              <div className="admin-info ">
+                <div className="content">
+                  <h5>Total number of Doctors</h5>
+                  <h2>5</h2>
+                </div>
+                <div className="logo">
+                  <FaStethoscope />
+                </div>
+              </div>
 
-      <div className="admin-info ">
-        <div className="content">
-          <h5>Total Users</h5>
-          <h2>15</h2>
-        </div>
-        <div className="logo">
-          <FiActivity />
-        </div>
-      </div>
-      </Section>
-    </div>
+              <div className="admin-info">
+                <div className="logo">
+                  <IoStatsChart />
+                </div>
+                <div className="content">
+                  <h5>Total number of Patients</h5>
+                  <h2>10</h2>
+                </div>
+              </div>
 
-        
-    </div>
+              <div className="admin-info">
+                <div className="logo">
+                  <BiGroup />
+                </div>
+                <div className="content">
+                  <h5>New Users</h5>
+                  <h2>3</h2>
+                </div>
+              </div>
 
-    
-    
+              <div className="admin-info ">
+                <div className="content">
+                  <h5>Total Users</h5>
+                  <h2>15</h2>
+                </div>
+                <div className="logo">
+                  <FiActivity />
+                </div>
+              </div>
+            </Section>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </>
-     );
+  );
 }
 
 const Section = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin-top:30px;
-  margin-left:30px;
+  margin-top: 30px;
+  margin-left: 30px;
 
   .admin-info {
     padding: 1rem;
@@ -82,7 +92,7 @@ const Section = styled.section`
     justify-content: space-evenly;
     align-items: center;
     gap: 1rem;
-    background-color:#4da598;
+    background-color: #4da598;
     height: 200px;
     width: 450px;
     transition: 0.5s ease-in-out;
@@ -115,6 +125,5 @@ const Section = styled.section`
     }
   }
 `;
-
 
 export default AdminDash;

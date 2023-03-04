@@ -2,9 +2,18 @@ import "../styles/ConsultCard.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from 'react'
 import { useEffect } from "react";
+import { deleteDoctorfunction } from "../services/adminService";
 
 function DoctorCard(props) {
 
+  function handleDelete (id) {
+
+    deleteDoctorfunction(id).then(r => {
+      console.log("doctor deleted")
+      window.location.reload()
+    })
+
+  }
   
   
 
@@ -32,7 +41,7 @@ function DoctorCard(props) {
             </div>
 
             <div className='record-btns'>
-              <button className='add-rec'>DELETE</button>
+              <button className='add-rec' onClick ={ () => handleDelete(props.details.id)}>DELETE</button>
             </div>
 
         </div>

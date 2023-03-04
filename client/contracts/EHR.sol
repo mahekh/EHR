@@ -19,10 +19,8 @@ contract EHR {
         string patient_ipfs_hash;
     }
 
-    struct MedicalRecords{
-
+    struct MedicalRecords {
         string medical_ipfs_hash;
-
     }
 
     // for a given address, it will return the struct for doctor or patient (mapping)
@@ -61,57 +59,49 @@ contract EHR {
 
         patient_role.add(patientId); // this will add patient role
 
-        allPatList.push(patientId);// push pat id to array all pat list
+        allPatList.push(patientId); // push pat id to array all pat list
     }
 
-    function isDoctor(address d_id) public view returns (bool){
-
+    function isDoctor(address d_id) public view returns (bool) {
         return doctor_role.has(d_id);
-
     }
 
-     function isPatient(address p_id) public view returns (bool){
-
+    function isPatient(address p_id) public view returns (bool) {
         return patient_role.has(p_id);
-
     }
 
-    function getDocinfo(address id) public view returns(string memory){
-
+    function getDocinfo(address id) public view returns (string memory) {
         return doctormap[id].doctor_ipfs_hash;
-
     }
 
-    function getPatinfo(address id) public view returns(string memory){
-
+    function getPatinfo(address id) public view returns (string memory) {
         return patientmap[id].patient_ipfs_hash;
-
     }
 
-    function getAllDoc() public view returns(Doctor[] memory){
+    function getAllDoc() public view returns (Doctor[] memory) {
+        Doctor[] memory allDocs = new Doctor[](allDocList.length); //creating temporary array
 
-        Doctor[] memory allDocs = new Doctor[](allDocList.length); //creating temporary array 
+        uint256 i = 0;
 
-        uint i=0;
-
-        for (i = 0; i <= allDocList.length-1; i++) {
-
-            allDocs[i]=doctormap[allDocList[i]]; //filling alldocs with the addresses in alldocslist
-            
+        for (i = 0; i <= allDocList.length - 1; i++) {
+            if (doctor_role.has(allDocList[i])) {
+                allDocs[i] = doctormap[allDocList[i]]; //filling alldocs with the addresses in alldocslist
+            }
         }
 
         return allDocs;
     }
 
-     function getAllPat() public view returns(Patient[] memory){
+    function getAllPat() public view returns (Patient[] memory) {
+        Patient[] memory allPat = new Patient[](allPatList.length); //creating temporary array
 
-        Patient[] memory allPat = new Patient[](allPatList.length); //creating temporary array 
+        uint256 i = 0;
 
-        uint i=0;
+        for (i = 0; i <= allPatList.length - 1; i++) {
 
-        for (i = 0; i <= allPatList.length-1; i++) {
-
-            allPat[i]=patientmap[allPatList[i]]; //filling allpat with the addresses in allpatlist
+            if (patient_role.has(allPatList[i])) {
+                allPat[i] = patientmap[allPatList[i]]; //filling allpat with the addresses in allpatlist
+            }
             
         }
 
@@ -119,17 +109,27 @@ contract EHR {
     }
 
     function addMedicalRecord(address patid, string memory pathash) public {
-
         require(doctor_role.has(msg.sender), "Only doctors can add records");
 
         MedicalRecords storage medrecord = recordmap[patid];
         medrecord.medical_ipfs_hash = pathash;
-    } 
+    }
 
-    function viewMedicalRecord(address patid) public view returns(string memory){
-
+    function viewMedicalRecord(address patid)
+        public
+        view
+        returns (string memory)
+    {
         return recordmap[patid].medical_ipfs_hash;
     }
 
+    function deleteDoc(address docid) public {
+        require(admin.has(msg.sender), "only for admin");
+        doctor_role.remove(docid);
+    }
 
+    function deletePat(address patid) public {
+        require(admin.has(msg.sender), "only for admin");
+        patient_role.remove(patid);
+    }
 }
