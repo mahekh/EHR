@@ -83,7 +83,7 @@ contract EHR {
 
         uint256 i = 0;
 
-        for (i = 0; i <= allDocList.length - 1; i++) {
+        for (i = 0; i < allDocList.length; i++) {
             if (doctor_role.has(allDocList[i])) {
                 allDocs[i] = doctormap[allDocList[i]]; //filling alldocs with the addresses in alldocslist
             }
@@ -97,12 +97,10 @@ contract EHR {
 
         uint256 i = 0;
 
-        for (i = 0; i <= allPatList.length - 1; i++) {
-
+        for (i = 0; i < allPatList.length; i++) {
             if (patient_role.has(allPatList[i])) {
                 allPat[i] = patientmap[allPatList[i]]; //filling allpat with the addresses in allpatlist
             }
-            
         }
 
         return allPat;
@@ -126,10 +124,31 @@ contract EHR {
     function deleteDoc(address docid) public {
         require(admin.has(msg.sender), "only for admin");
         doctor_role.remove(docid);
+        address[] memory temp;
+
+        uint256 j = 0;
+
+        for (uint256 i = 0; i < allDocList.length; i++) {
+            if (allDocList[i] != docid) {
+                temp[j++] = allDocList[i];
+            }
+        }
+        allDocList = temp;
     }
 
     function deletePat(address patid) public {
         require(admin.has(msg.sender), "only for admin");
         patient_role.remove(patid);
+
+        address[] memory temp;
+
+        uint256 j = 0;
+
+        for (uint256 i = 0; i < allPatList.length; i++) {
+            if (allPatList[i] != patid) {
+                temp[j++] = allDocList[i];
+            }
+        }
+        allPatList = temp;
     }
 }

@@ -109,6 +109,7 @@ export const getAllDoctorsAdmin = () => {
         .getAllDoc()
         .call()
         .then((listOfDoctors) => {
+          console.log(listOfDoctors)
           listOfDoctors.forEach((doc) => {
             axios
               .get("http://localhost:8080/ipfs/" + doc.doctor_ipfs_hash)
