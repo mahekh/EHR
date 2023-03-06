@@ -30,7 +30,10 @@ function PatientDash() {
           </div>
         </div>
       ) : (
-        ""
+        <div className="d-flex w-100 flex-row justify-content-center align-items-center text-danger">
+          <span className="h4 text-center">Only Patient has access to this page</span>
+          <progress></progress>
+        </div>
       )}
     </>
   );
