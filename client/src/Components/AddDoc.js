@@ -58,33 +58,33 @@ function AddDoc() {
     {modal && (
       <div className='modal'>
       <div className="overlay">
-      <div class="form-container">
-      <form class="register-form" onSubmit={handleSubmit}>
+      <div className="form-container">
+      <form className="register-form" onSubmit={handleSubmit}>
         {submitted && valid ? <div className="success-message">Doctor Registered</div> : null}
         
-        <input onChange={(e) => setFirstname(e.target.value)} value={firstName} id="first-name" class="form-field" type="text" placeholder="First Name" name="firstName"/>
+        <input onChange={(e) => setFirstname(e.target.value)} value={firstName} id="first-name" className="form-field" type="text" placeholder="First Name" name="firstName"/>
         {submitted && ! firstName ? <span>Please enter First Name</span>: null}
 
-        <input onChange={(e) => setLastname(e.target.value)} value={lastName} id="last-name" class="form-field" type="text" placeholder="Last Name" name="lastName"/>
+        <input onChange={(e) => setLastname(e.target.value)} value={lastName} id="last-name" className="form-field" type="text" placeholder="Last Name" name="lastName"/>
         {submitted && ! lastName ? <span>Please enter Last Name</span>: null}
         
-        <input onChange={(e) => setEmail(e.target.value)} value={email} id="email" class="form-field" type="text" placeholder="Email" name="email"/>
+        <input onChange={(e) => setEmail(e.target.value)} value={email} id="email" className="form-field" type="text" placeholder="Email" name="email"/>
         {submitted && ! email ? <span>Please enter Email</span>: null}
 
-        <input onChange={(e) => setNumber(e.target.value)} value={number} id="number" class="form-field" type="text" placeholder="Number" name="number"/>
+        <input onChange={(e) => setNumber(e.target.value)} value={number} id="number" className="form-field" type="text" placeholder="Number" name="number"/>
         {submitted && ! number ? <span>Please enter Number</span>: null}
 
-        <input onChange={(e) => setID(e.target.value)} value={id} id="doc-id" class="form-field" type="text" placeholder="ID" name="id"/>
+        <input onChange={(e) => setID(e.target.value)} value={id} id="doc-id" className="form-field" type="text" placeholder="ID" name="id"/>
         {submitted && ! id ? <span>Please enter ID</span>: null}
 
-        <input onChange={(e) => setCity(e.target.value)} value={city} id="city" class="form-field" type="text" placeholder="City" name="city"/>
+        <input onChange={(e) => setCity(e.target.value)} value={city} id="city" className="form-field" type="text" placeholder="City" name="city"/>
         {submitted && ! city ? <span>Please enter City</span>: null}
         
 
-        <input onChange={(e) => setCountry(e.target.value)} value={country} id="country" class="form-field" type="text" placeholder="Country" name="country"/>
+        <input onChange={(e) => setCountry(e.target.value)} value={country} id="country" className="form-field" type="text" placeholder="Country" name="country"/>
         {submitted && ! country ? <span>Please enter Country</span>: null}
         
-        <button class="form-field" type="submit" >
+        <button className="form-field" type="submit" >
           Register Doctor
         </button>
 
