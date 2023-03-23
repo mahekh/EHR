@@ -46,7 +46,6 @@ contract EHR {
         // this will add doctor details for the structure Doctor
         doc.doctor_id = docId;
         doc.doctor_ipfs_hash = docHash;
-
         doctor_role.add(docId); // this will add doctor role
         allDocList.push(docId); // push doc id to array all doc list
     }
@@ -56,9 +55,7 @@ contract EHR {
         // this will add patient details for the structure Patient
         pat.patient_id = patientId;
         pat.patient_ipfs_hash = patientHash;
-
         patient_role.add(patientId); // this will add patient role
-
         allPatList.push(patientId); // push pat id to array all pat list
     }
 
