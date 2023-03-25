@@ -135,7 +135,7 @@ function ConsultCard(props) {
                     onChange={(e) => setWeight(e.target.value)}
                     value={weight}
                     id="weight"
-                    class="weight"
+                    className="weight"
                     type="text"
                     placeholder="Weight (Kgs)"
                     name="weight"
@@ -145,7 +145,7 @@ function ConsultCard(props) {
                     onChange={(e) => setHeight(e.target.value)}
                     value={height}
                     id="height"
-                    class="height"
+                    className="height"
                     type="text"
                     placeholder="Height (cms)"
                     name="height"
@@ -155,7 +155,7 @@ function ConsultCard(props) {
                     onChange={(e) => setBP(e.target.value)}
                     value={bp}
                     id="bp"
-                    class="bp"
+                    className="bp"
                     type="text"
                     placeholder="Blood Pressure"
                     name="bp"
@@ -180,7 +180,7 @@ function ConsultCard(props) {
                       onChange={(e) => setMed1(e.target.value)}
                       value={med1}
                       id="med-1"
-                      class="medicine-1"
+                      className="medicine-1"
                       type="text"
                       placeholder="Medicine Name"
                       name="med-1"
@@ -222,7 +222,7 @@ function ConsultCard(props) {
                       onChange={(e) => setMed2(e.target.value)}
                       value={med2}
                       id="med-2"
-                      class="medicine-2"
+                      className="medicine-2"
                       type="text"
                       placeholder="Medicine Name"
                       name="med-2"
