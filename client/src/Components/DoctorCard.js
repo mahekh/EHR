@@ -1,7 +1,6 @@
 import "../styles/ConsultCard.css";
 import paticon from "../assets/pat-icon.png";
-import React, { useState } from 'react'
-import { useEffect } from "react";
+import React from 'react'
 import { deleteDoctorfunction } from "../services/adminService";
 
 function DoctorCard(props) {

@@ -2,8 +2,6 @@ import React from 'react'
 import AdminSidebar from './AdminSidebar';
 import Header from './Header'
 import AddDoc from './AddDoc'
-import DeleteDoc from './DeleteDoc';
-
 
 
 
@@ -17,7 +15,6 @@ function DoctorDesk()
         <Header roles="Admin"/> 
         <div style={{display:'flex'}}>
           <AddDoc/>
-          {/* <DeleteDoc/> */}
         </div>
       </div>   
 

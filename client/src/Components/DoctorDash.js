@@ -4,7 +4,7 @@ import { isDoctor } from "../services/doctorService";
 import Docprofile from "./Docprofile";
 import DoctorSidebar from "./DoctorSidebar";
 import Header from "./Header";
-import MedicalReport from "./MedicalReport";
+
 
 function DoctorDash() {
   const [isDoc, setisDoc] = useState(false);

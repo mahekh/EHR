@@ -107,23 +107,12 @@ const Section = styled.section`
       }
     }
     .logo {
-      background-color: black;
-      border-radius: 3rem;
+      background-color: white;
       display: flex;
-      justify-content: center;
-      align-items: xcenter;
       padding: 1.5rem;
       svg {
-        font-size: 1.5rem;
-      }
-    }
-  }
-  @media screen and (min-width: 280px) and (max-width: 720px) {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    .analytic {
-      &:nth-of-type(3),
-      &:nth-of-type(4) {
-        flex-direction: row-reverse;
+        font-size: 2rem;
+        color: black;
       }
     }
   }
