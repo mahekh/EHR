@@ -38,7 +38,7 @@ function AddPat() {
 
     // calling the function from the admin service to add the patient details 
     AddPatientfunction(patient_profile).then(r => {
-      console.log("patient is added");
+      console.log("Patient has been added");
     })
     
   }

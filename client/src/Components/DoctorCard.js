@@ -9,7 +9,7 @@ function DoctorCard(props) {
 
     // calling the delete function from doctor service 
     deleteDoctorfunction(id).then(r => {
-      console.log("doctor deleted")
+      console.log("Doctor has been deleted")
       window.location.reload()
     })
 

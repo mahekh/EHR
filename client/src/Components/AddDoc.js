@@ -36,7 +36,7 @@ function AddDoc() {
 
     // calling the function from the admin service to add the doctor details 
     addDoctorfunction(doc_profile).then(r => {
-      console.log("doctor is added");
+      console.log("Doctor has been added");
     })
     
   }

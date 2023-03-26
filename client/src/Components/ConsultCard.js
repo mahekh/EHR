@@ -57,7 +57,7 @@ function ConsultCard(props) {
 
     // calling the function from doctor service to add the medical record 
     addMedicalRecord(MedRecord).then((r) => {
-      console.log("Doctor Added");
+      console.log("Doctor Added the medical record");
     });
   };
 
