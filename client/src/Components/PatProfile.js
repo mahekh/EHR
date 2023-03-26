@@ -9,6 +9,8 @@ function PatProfile() {
 
   const [patProf, setpatProf] = useState({});
 
+
+  // getting the patient details by using the function in patient service
   useEffect(() => {
     getPatientDetails().then(p => {
       console.log(p);

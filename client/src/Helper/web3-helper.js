@@ -2,6 +2,9 @@ import Web3 from "web3";
 
 const EHR = require("../contracts/EHR.json"); //imported compiled smart contracts
 
+//using web3 to connect with metamask
+// when metamask is installed, the web3 object will be injected in the window DOM
+
 export class Web3Helper {
   web3 = null;
   contract = null;
@@ -20,7 +23,7 @@ export class Web3Helper {
 
           if (network_data) {
             let address = network_data.address;
-            this.contract = new web3.eth.Contract(abi, address); //get our contracts
+            this.contract = new web3.eth.Contract(abi, address); //get our deployed contracts, "address" and abi from the json file, connecting with the contracts that is deployed in ganache
           }
         })
         .catch((error) => {
@@ -29,6 +32,8 @@ export class Web3Helper {
     });
   }
 
+
+  // connecting with metamask, checking if window.web3 is available
   getWeb3() {
     return new Promise((resolve, reject) => {
       if (window.ethereum) {
@@ -40,6 +45,7 @@ export class Web3Helper {
     });
   }
 
+  // retrieving the current connected account in metamask
   getCurrentAccount() {
     return new Promise((resolve, reject) => {
       if (this.web3) {
@@ -50,6 +56,7 @@ export class Web3Helper {
     });
   }
 
+  //getting the deployed contracts 
   getContracts() {
     let retry = false;
     return new Promise((resolve, reject) => {

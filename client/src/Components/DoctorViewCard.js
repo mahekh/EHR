@@ -13,6 +13,7 @@ function DoctorViewCard(props) {
     setModal(!modal);
   };
 
+  // viewing medical records, calling function from doctor service
   function viewRecord() {
     viewMedicalRecord(props.details.id).then((r) => {
       setmedRecord(r);

@@ -9,6 +9,7 @@ import Header from "./Header";
 function DoctorDash() {
   const [isDoc, setisDoc] = useState(false);
 
+  // checking if it is doctor 
   useEffect(() => {
     isDoctor().then((r) => {
       if (r) setisDoc(true);

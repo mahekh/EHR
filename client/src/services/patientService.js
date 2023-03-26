@@ -4,6 +4,8 @@ import axios from "axios";
 const web3Helper = new Web3Helper();
 let ipfs = new IPFS().getIPFS();
 
+
+//checking if it is patient
 export const isPatient = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
@@ -24,6 +26,7 @@ export const isPatient = () => {
 };
 
 
+// getting the patient detail from ipfs hash
 export const getPatientDetails = () => {
 
   return new Promise((resolve, reject) => {
@@ -52,7 +55,7 @@ export const getPatientDetails = () => {
   });
 };
 
-
+// getting the medical record from the ipfs hash
 export const viewMedicalRecord = () => {
   return new Promise((resolve, reject) => {
      

@@ -13,6 +13,7 @@ import { isAdmin } from "../services/adminService";
 function AdminDash() {
   const [admin, setadmin] = useState(false);
 
+  // checking if it is admin by calling the fuction from admin service
   useEffect(() => {
     isAdmin().then((ad) => {
       setadmin(ad);

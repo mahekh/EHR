@@ -9,6 +9,7 @@ function Docprofile() {
 
   const [docDetails, setdocDetails] = useState({})
 
+  // get doctor details using function from doctor service
   useEffect(() => {
     getDoctorDetails().then(d => {
       setdocDetails(d);

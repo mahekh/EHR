@@ -9,6 +9,8 @@ function ViewReport() {
   const [patMedrec, setpatMedrec] = useState({});
   const [load, setload] = useState(false);
 
+
+  //getting the view medical record function from patient service 
   useEffect(() => {
     viewMedicalRecord().then((v) => {
       setpatMedrec(v);

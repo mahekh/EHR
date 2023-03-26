@@ -17,6 +17,7 @@ function PatientList()
 
   useEffect(() => {
     
+    //getting all the patients in the network by using the function from admin service 
     getAllpatientsAdmin().then(p => {
 
       setpatDetails(p)

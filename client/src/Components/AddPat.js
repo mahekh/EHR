@@ -36,6 +36,7 @@ function AddPat() {
     const patient_profile = { firstName, lastName, email, number, id, city, country };
     console.log(patient_profile);
 
+    // calling the function from the admin service to add the patient details 
     AddPatientfunction(patient_profile).then(r => {
       console.log("patient is added");
     })

@@ -7,6 +7,7 @@ function DoctorCard(props) {
 
   function handleDelete (id) {
 
+    // calling the delete function from doctor service 
     deleteDoctorfunction(id).then(r => {
       console.log("doctor deleted")
       window.location.reload()

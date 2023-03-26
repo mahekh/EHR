@@ -34,6 +34,7 @@ function AddDoc() {
     const doc_profile = { firstName, lastName, email, number, id, city, country };
     console.log(doc_profile);
 
+    // calling the function from the admin service to add the doctor details 
     addDoctorfunction(doc_profile).then(r => {
       console.log("doctor is added");
     })

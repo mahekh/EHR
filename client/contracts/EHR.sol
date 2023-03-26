@@ -5,7 +5,8 @@ import "./Roles.sol";
 contract EHR {
     using Roles for Roles.Role;
 
-    Roles.Role private admin;
+    //using the roles library define the three roles
+    Roles.Role private admin;  
     Roles.Role private doctor_role;
     Roles.Role private patient_role;
 
@@ -24,6 +25,7 @@ contract EHR {
     }
 
     // for a given address, it will return the struct for doctor or patient (mapping)
+    //map address to their respective structs 
     mapping(address => Doctor) doctormap;
     mapping(address => Patient) patientmap;
     mapping(address => MedicalRecords) recordmap;
@@ -67,14 +69,17 @@ contract EHR {
         return patient_role.has(p_id);
     }
 
+    // retrive the doctor ipfs hash for that given doctor id
     function getDocinfo(address id) public view returns (string memory) {
         return doctormap[id].doctor_ipfs_hash;
     }
 
+    // retrive the patient ipfs hash for the given patient id
     function getPatinfo(address id) public view returns (string memory) {
         return patientmap[id].patient_ipfs_hash;
     }
 
+    // retriving an array of doctor struct, meaning retriveing the doctor id and ipfs hash (the struct contains the id and hash)
     function getAllDoc() public view returns (Doctor[] memory) {
         Doctor[] memory allDocs = new Doctor[](allDocList.length); //creating temporary array
 
@@ -89,6 +94,7 @@ contract EHR {
         return allDocs;
     }
 
+    // retriving an array of patient struct, meaning retriveing the patient id and ipfs hash
     function getAllPat() public view returns (Patient[] memory) {
         Patient[] memory allPat = new Patient[](allPatList.length); //creating temporary array
 
@@ -103,6 +109,7 @@ contract EHR {
         return allPat;
     }
 
+    // adding in the medical record struct which is mapped with patient id
     function addMedicalRecord(address patid, string memory pathash) public {
         require(doctor_role.has(msg.sender), "Only doctors can add records");
 
@@ -110,14 +117,14 @@ contract EHR {
         medrecord.medical_ipfs_hash = pathash;
     }
 
-    function viewMedicalRecord(address patid)
-        public
-        view
-        returns (string memory)
+    // viewing the medical record which is mapped with patient id, returns the medical record ipfs hash
+    function viewMedicalRecord(address patid) public view returns (string memory)
     {
         return recordmap[patid].medical_ipfs_hash;
     }
 
+
+    //removing the doctor role 
     function deleteDoc(address docid) public {
         require(admin.has(msg.sender), "only for admin");
         doctor_role.remove(docid);
@@ -133,6 +140,8 @@ contract EHR {
         allDocList = temp;
     }
 
+
+    //removing the patient role 
     function deletePat(address patid) public {
         require(admin.has(msg.sender), "only for admin");
         patient_role.remove(patid);

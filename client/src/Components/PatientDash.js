@@ -9,6 +9,8 @@ import { useEffect } from "react";
 function PatientDash() {
   const [checkPatient, setcheckPatient] = useState(false);
 
+
+  //checking if it is patient 
   useEffect(() => {
     isPatient().then((r) => {
       setcheckPatient(r);

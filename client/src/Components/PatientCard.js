@@ -8,6 +8,7 @@ function PatientCard(props) {
 
   function handleDelete (id) {
 
+    // calling delete function from the admin service 
     deletePatientfunction(id).then(r => {
       console.log("patient deleted")
       window.location.reload()

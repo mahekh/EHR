@@ -15,6 +15,7 @@ function DoctorList()
 
   const [Docdetails, setDocdetails] = useState([])
 
+  // calling the function from admin service 
   useEffect(() => {
     
     getAllDoctorsAdmin().then(d => {
