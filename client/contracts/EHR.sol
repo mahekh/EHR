@@ -44,6 +44,7 @@ contract EHR {
 
     // for adding doctor we need id and ipfs hash
     function addDoctor(address docId, string memory docHash) public {
+        require(admin.has(msg.sender), "only for admin");
         Doctor storage doc = doctormap[docId]; // creating a map for structure doctor
         // this will add doctor details for the structure Doctor
         doc.doctor_id = docId;
@@ -53,6 +54,7 @@ contract EHR {
     }
 
     function addPatient(address patientId, string memory patientHash) public {
+        require(admin.has(msg.sender), "only for admin");
         Patient storage pat = patientmap[patientId]; // creating a map for structure patient
         // this will add patient details for the structure Patient
         pat.patient_id = patientId;
