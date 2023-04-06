@@ -6,6 +6,7 @@ let ipfs = new IPFS().getIPFS();
 
 
 // checking if it is a doctor or not
+//checked
 export const isDoctor = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
@@ -73,6 +74,7 @@ export const getPatientDetails = (listOfPateints) => {
 };
 
 // adding medical record 
+//checked- little similar
 export const addMedicalRecord = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
@@ -99,6 +101,7 @@ export const addMedicalRecord = (data) => {
 };
 
 // getting the medical record of the given patient using their id
+//checked
 export const viewMedicalRecord = (id) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
@@ -132,6 +135,7 @@ export const viewMedicalRecord = (id) => {
 };
 
 // get doctor details from ipfs 
+//checked
 export const getDoctorDetails = () => {
 
   return new Promise((resolve, reject) => {

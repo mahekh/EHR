@@ -66,5 +66,4 @@ it("Test 5: Delete a Patient", async () => {
     await ehr.deletePat(patient_id, { from: admin_id });
     assert(!(await ehr.isPatient(patient_id)), true, "Patient not deleted");
 });
-
 })
