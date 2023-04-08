@@ -6,7 +6,6 @@ let ipfs = new IPFS().getIPFS();
 
 
 //checking if it is patient
-//little similar
 export const isPatient = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
@@ -28,7 +27,6 @@ export const isPatient = () => {
 
 
 // getting the patient detail from ipfs hash
-//checked
 export const getPatientDetails = () => {
 
   return new Promise((resolve, reject) => {
@@ -58,7 +56,6 @@ export const getPatientDetails = () => {
 };
 
 // getting the medical record from the ipfs hash
-//checked
 export const viewMedicalRecord = () => {
   return new Promise((resolve, reject) => {
      

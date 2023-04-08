@@ -9,7 +9,6 @@ const web3Helper = new Web3Helper();  // using web3
 
 
 //checking whether its connected as admin account
-//same
 export const isAdmin = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
@@ -31,7 +30,6 @@ export const isAdmin = () => {
 
 
 //adding doctor 
-//little similar
 export const addDoctorfunction = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
@@ -56,7 +54,6 @@ export const addDoctorfunction = (data) => {
 
 
 //adding patient 
-//little similar
 export const AddPatientfunction = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
@@ -115,7 +112,6 @@ export const getAllpatientsAdmin = () => {
 
 
 // getting all the list of doctors from blockchain, it will retrieve all the doctors ipfs hash 
-//checked
 export const getAllDoctorsAdmin = () => {
   let DoctorDetails = [];
 

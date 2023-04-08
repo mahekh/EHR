@@ -9,7 +9,6 @@ export class Web3Helper {
   web3 = null;
   contract = null;
 
-  //same
   constructor() {
     window.ethereum.on("accountsChanged", (account) => {
       window.location.reload();
@@ -35,7 +34,6 @@ export class Web3Helper {
 
 
   // connecting with metamask, checking if window.web3 is available
-  //same
   getWeb3() {
     return new Promise((resolve, reject) => {
       if (window.ethereum) {
@@ -48,7 +46,6 @@ export class Web3Helper {
   }
 
   // retrieving the current connected account in metamask
-  //same
   getCurrentAccount() {
     return new Promise((resolve, reject) => {
       if (this.web3) {
@@ -60,7 +57,6 @@ export class Web3Helper {
   }
 
   //getting the deployed contracts 
-  //same
   getContracts() {
     let retry = false;
     return new Promise((resolve, reject) => {
