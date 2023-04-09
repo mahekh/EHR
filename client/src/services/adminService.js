@@ -12,12 +12,8 @@ const web3Helper = new Web3Helper();  // using web3
 export const isAdmin = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
-      console.log(c);
       web3Helper.getCurrentAccount().then((a) => {
-        c.methods
-          .checkAdmin()
-          .call({ from: a })
-          .then((r) => {
+        c.methods.checkAdmin().call({ from: a }).then((r) => {
             resolve(r);
           })
           .catch((err) => {
@@ -35,12 +31,8 @@ export const addDoctorfunction = (data) => {
   return new Promise((resolve, reject) => {
     ipfs.add(JSON.stringify(data)).then((result) => {
       web3Helper.getContracts().then((c) => {
-        console.log(c);
         web3Helper.getCurrentAccount().then((a) => {
-          c.methods
-            .addDoctor(data.id, result.path)
-            .send({ from: a })
-            .on("confirmation", (r) => {
+          c.methods.addDoctor(data.id, result.path).send({ from: a }).on("confirmation", (r) => {
               resolve(r);
             })
             .on("error", (err) => {
@@ -59,12 +51,8 @@ export const AddPatientfunction = (data) => {
   return new Promise((resolve, reject) => {
     ipfs.add(JSON.stringify(data)).then((result) => {
       web3Helper.getContracts().then((c) => {
-        console.log(c);
         web3Helper.getCurrentAccount().then((a) => {
-          c.methods
-            .addPatient(data.id, result.path)
-            .send({ from: a })
-            .on("confirmation", (r) => {
+          c.methods.addPatient(data.id, result.path).send({ from: a }).on("confirmation", (r) => {
               resolve(r);
             })
             .on("error", (err) => {
@@ -82,10 +70,7 @@ export const getAllpatientsAdmin = () => {
 
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
-      c.methods
-        .getAllPat()
-        .call()
-        .then((listOfPateints) => {
+      c.methods.getAllPat().call().then((listOfPateints) => {
           listOfPateints.forEach((pat) => {
             axios
               .get("http://localhost:8080/ipfs/" + pat.patient_ipfs_hash)
@@ -117,11 +102,7 @@ export const getAllDoctorsAdmin = () => {
 
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
-      c.methods
-        .getAllDoc()
-        .call()
-        .then((listOfDoctors) => {
-          console.log(listOfDoctors)
+      c.methods.getAllDoc().call().then((listOfDoctors) => {
           listOfDoctors.forEach((doc) => {
             axios
               .get("http://localhost:8080/ipfs/" + doc.doctor_ipfs_hash)
@@ -152,12 +133,8 @@ export const deleteDoctorfunction = (id) => {
   return new Promise((resolve, reject) => {
    
       web3Helper.getContracts().then((c) => {
-        console.log(c);
         web3Helper.getCurrentAccount().then((a) => {
-          c.methods
-            .deleteDoc(id)
-            .send({ from: a })
-            .on("confirmation", (r) => {
+          c.methods.deleteDoc(id).send({ from: a }).on("confirmation", (r) => {
               resolve(r);
             })
             .on("error", (err) => {
@@ -174,12 +151,8 @@ export const deletePatientfunction = (id) => {
   return new Promise((resolve, reject) => {
     
       web3Helper.getContracts().then((c) => {
-        console.log(c);
         web3Helper.getCurrentAccount().then((a) => {
-          c.methods
-            .deletePat(id)
-            .send({ from: a })
-            .on("confirmation", (r) => {
+          c.methods.deletePat(id).send({ from: a }).on("confirmation", (r) => {
               resolve(r);
             })
             .on("error", (err) => {

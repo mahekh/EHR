@@ -44,7 +44,7 @@ contract EHR {
 
     // for adding doctor we need id and ipfs hash
     function addDoctor(address docId, string memory docHash) public {
-        require(admin.has(msg.sender), "only for admin");
+        require(admin.has(msg.sender), "Only Admin can add a Doctor");
         Doctor storage doc = doctormap[docId]; // creating a map for structure doctor
         // this will add doctor details for the structure Doctor
         doc.doctor_id = docId;
@@ -54,7 +54,7 @@ contract EHR {
     }
 
     function addPatient(address patientId, string memory patientHash) public {
-        require(admin.has(msg.sender), "only for admin");
+        require(admin.has(msg.sender), "Only Admin can add a Patient");
         Patient storage pat = patientmap[patientId]; // creating a map for structure patient
         // this will add patient details for the structure Patient
         pat.patient_id = patientId;
@@ -113,7 +113,7 @@ contract EHR {
 
     // adding in the medical record struct which is mapped with patient id
     function addMedicalRecord(address patid, string memory pathash) public {
-        require(doctor_role.has(msg.sender), "Only doctors can add records");
+        require(doctor_role.has(msg.sender), "Only Doctors can add medical records for patient");
 
         MedicalRecords storage medrecord = recordmap[patid];
         medrecord.medical_ipfs_hash = pathash;
@@ -128,7 +128,7 @@ contract EHR {
 
     //removing the doctor role 
     function deleteDoc(address docid) public {
-        require(admin.has(msg.sender), "only for admin");
+        require(admin.has(msg.sender), "Only Admin can delete a Doctor");
         doctor_role.remove(docid);
         address[] memory temp;
 
@@ -145,7 +145,7 @@ contract EHR {
 
     //removing the patient role 
     function deletePat(address patid) public {
-        require(admin.has(msg.sender), "only for admin");
+        require(admin.has(msg.sender), "Only Admin can delete a Patient");
         patient_role.remove(patid);
 
         address[] memory temp;
