@@ -4,13 +4,15 @@ import axios from "axios";
 const web3Helper = new Web3Helper();
 let ipfs = new IPFS().getIPFS();
 
-
-// checking if it is a doctor or not
 export const isDoctor = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
+      console.log(c);
       web3Helper.getCurrentAccount().then((a) => {
-        c.methods.isDoctor(a).call().then((r) => {
+        c.methods
+          .isDoctor(a)
+          .call()
+          .then((r) => {
             resolve(r);
           })
           .catch((err) => {
@@ -21,12 +23,15 @@ export const isDoctor = () => {
   });
 };
 
-// returns all patients struct 
 export const getAllPatients = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
+      console.log(c);
       web3Helper.getCurrentAccount().then(() => {
-        c.methods.getAllPat().call().then((r) => {
+        c.methods
+          .getAllPat()
+          .call()
+          .then((r) => {
             resolve(r);
           })
           .catch((err) => {
@@ -37,7 +42,6 @@ export const getAllPatients = () => {
   });
 };
 
-// return all the patient details from ipfs
 export const getPatientDetails = (listOfPateints) => {
   let patientDetails = [];
 
@@ -64,16 +68,19 @@ export const getPatientDetails = (listOfPateints) => {
   });
 };
 
-// adding medical record 
 export const addMedicalRecord = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
-    // adding data into ipfs
-    ipfs.add(JSON.stringify(data)).then((result) => { 
+    ipfs.add(JSON.stringify(data)).then((result) => {
       web3Helper.getContracts().then((c) => {
+        console.log(c);
+        console.log(data);
         web3Helper.getCurrentAccount().then((a) => {
           data.doctor = a;
-          c.methods.addMedicalRecord(data.patient, result.path).send({ from: a }).on("confirmation", (r) => {
+          c.methods
+            .addMedicalRecord(data.patient, result.path)
+            .send({ from: a })
+            .on("confirmation", (r) => {
               resolve(r);
             })
             .on("error", (err) => {
@@ -85,16 +92,20 @@ export const addMedicalRecord = (data) => {
   });
 };
 
-// getting the medical record of the given patient using their id
 export const viewMedicalRecord = (id) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
      
       web3Helper.getContracts().then((c) => {
-          c.methods.viewMedicalRecord(id).call().then((r) => { // fuction from smart contract 
-            //returns the ipfs hash "r"
+        console.log(c);
+        console.log(id);
+        web3Helper.getCurrentAccount().then((a) => {
+          c.methods
+            .viewMedicalRecord(id)
+            .call()
+            .then((r) => {
               axios
-              .get("http://localhost:8080/ipfs/" + r) // 
+              .get("http://localhost:8080/ipfs/" + r)
               .then(function (response) {
                 // handle success
                 console.log(response);
@@ -104,15 +115,18 @@ export const viewMedicalRecord = (id) => {
                 // handle error
                 console.log(error);
               })
+              .finally(function () {
+                // always executed
+              });
             })
             .catch((err) => {
               reject(err);
             });
+        });
       });
     });
 };
 
-// get doctor details from ipfs 
 export const getDoctorDetails = () => {
 
   return new Promise((resolve, reject) => {

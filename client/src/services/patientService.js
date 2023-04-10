@@ -4,13 +4,15 @@ import axios from "axios";
 const web3Helper = new Web3Helper();
 let ipfs = new IPFS().getIPFS();
 
-
-//checking if it is patient
 export const isPatient = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
+      console.log(c);
       web3Helper.getCurrentAccount().then((a) => {
-        c.methods.isPatient(a).call().then((r) => {
+        c.methods
+          .isPatient(a)
+          .call()
+          .then((r) => {
             resolve(r);
           })
           .catch((err) => {
@@ -22,7 +24,6 @@ export const isPatient = () => {
 };
 
 
-// getting the patient detail from ipfs hash
 export const getPatientDetails = () => {
 
   return new Promise((resolve, reject) => {
@@ -51,13 +52,17 @@ export const getPatientDetails = () => {
   });
 };
 
-// getting the medical record from the ipfs hash
+
 export const viewMedicalRecord = () => {
   return new Promise((resolve, reject) => {
      
       web3Helper.getContracts().then((c) => {
+        console.log(c);
         web3Helper.getCurrentAccount().then((a) => {
-          c.methods.viewMedicalRecord(a).call().then((r) => {
+          c.methods
+            .viewMedicalRecord(a)
+            .call()
+            .then((r) => {
               axios
               .get("http://localhost:8080/ipfs/" + r)
               .then(function (response) {
