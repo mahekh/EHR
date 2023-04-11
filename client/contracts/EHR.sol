@@ -126,35 +126,32 @@ contract EHR {
 
     //removing the doctor role 
     function deleteDoc(address docid) public {
-        require(admin.has(msg.sender), "only for admin");
-        doctor_role.remove(docid);
-        address[] memory temp;
-
-        uint256 j = 0;
-
-        for (uint256 i = 0; i < allDocList.length; i++) {
-            if (allDocList[i] != docid) {
-                temp[j++] = allDocList[i];
+        
+            require(isDoctor(docid), "Invalid doctor address");
+            uint256 j = 0;
+            address[] memory temp = new address[](allDocList.length - 1);
+            for (uint256 i = 0; i < allDocList.length; i++) {
+                if (allDocList[i] != docid) {
+                    temp[j++] = allDocList[i];
+                }
             }
+            doctor_role.remove(docid);
+            allDocList = temp;
         }
-        allDocList = temp;
-    }
 
 
     //removing the patient role 
     function deletePat(address patid) public {
-        require(admin.has(msg.sender), "only for admin");
-        patient_role.remove(patid);
-
-        address[] memory temp;
-
+        require(isPatient(patid), "Invalid patient address");
         uint256 j = 0;
-
+        address[] memory temp = new address[](allPatList.length - 1);
         for (uint256 i = 0; i < allPatList.length; i++) {
             if (allPatList[i] != patid) {
-                temp[j++] = allDocList[i];
+                temp[j++] = allPatList[i];
             }
         }
-        allPatList = temp;
-    }
+    patient_role.remove(patid);
+    allPatList = temp;
+
+}
 }
