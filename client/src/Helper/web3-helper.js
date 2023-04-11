@@ -15,7 +15,9 @@ export class Web3Helper {
     });
 
     this.getWeb3().then((web3) => {
-      web3.eth.net.getId().then((id) => {
+      web3.eth.net
+        .getId()
+        .then((id) => {
           let abi = EHR.abi;
           let network_data = EHR.networks[id]; //get network data for the deployed contracts
 

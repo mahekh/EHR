@@ -2,8 +2,13 @@ import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
 import axios from "axios";
 
-const web3Helper = new Web3Helper();
+const web3Helper = new Web3Helper();  // using web3 
 
+//functionalities for the admin
+
+
+
+//checking whether its connected as admin account
 export const isAdmin = () => {
   return new Promise((resolve, reject) => {
     web3Helper.getContracts().then((c) => {
@@ -23,6 +28,8 @@ export const isAdmin = () => {
   });
 };
 
+
+//adding doctor 
 export const addDoctorfunction = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
@@ -45,6 +52,8 @@ export const addDoctorfunction = (data) => {
   });
 };
 
+
+//adding patient 
 export const AddPatientfunction = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
@@ -67,6 +76,7 @@ export const AddPatientfunction = (data) => {
   });
 };
 
+// getting all the list of patients from blockchain, it will retrieve all the patient ipfs hash 
 export const getAllpatientsAdmin = () => {
   let patientDetails = [];
 
@@ -100,6 +110,8 @@ export const getAllpatientsAdmin = () => {
   });
 };
 
+
+// getting all the list of doctors from blockchain, it will retrieve all the doctors ipfs hash 
 export const getAllDoctorsAdmin = () => {
   let DoctorDetails = [];
 
@@ -134,7 +146,7 @@ export const getAllDoctorsAdmin = () => {
   });
 };
 
-
+// deleting the doctor 
 export const deleteDoctorfunction = (id) => {
 
   return new Promise((resolve, reject) => {
@@ -156,6 +168,7 @@ export const deleteDoctorfunction = (id) => {
     });
 };
 
+// deleting the patient
 export const deletePatientfunction = (id) => {
   
   return new Promise((resolve, reject) => {
