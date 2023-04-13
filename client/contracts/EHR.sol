@@ -141,7 +141,8 @@ contract EHR {
 
 
     //removing the patient role 
-    function deletePat(address patid) public {
+    function deletePat(address patid) public {  
+
         require(isPatient(patid), "Invalid patient address");
         uint256 j = 0;
         address[] memory temp = new address[](allPatList.length - 1);
