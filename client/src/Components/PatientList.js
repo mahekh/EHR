@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getAllpatientsAdmin } from '../services/adminService';
+import { getAllpatientsAdmin } from '../functionalities/adminFunctionalities';
 import AdminSidebar from './AdminSidebar';
 import Header from './Header'
 import PatientCard from './PatientCard';

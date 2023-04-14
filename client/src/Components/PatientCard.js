@@ -1,7 +1,7 @@
 import "../styles/ConsultCard.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from 'react'
-import { deletePatientfunction } from "../services/adminService";
+import { deletePatientfunction } from "../functionalities/adminFunctionalities";
 
 
 function PatientCard(props) {

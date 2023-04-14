@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllPatients, getPatientDetails } from "../services/doctorService";
+import { getAllPatients, getPatientDetails } from "../functionalities/doctorFunctionalities";
 import ConsultCard from "./ConsultCard";
 import DoctorSidebar from "./DoctorSidebar";
 import Header from "./Header";

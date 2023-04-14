@@ -2,7 +2,7 @@ import "../styles/ConsultCard.css";
 import "../styles/MedicalReport.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from "react";
-import { addMedicalRecord } from "../services/doctorService";
+import { addMedicalRecord } from "../functionalities/doctorFunctionalities";
 
 function ConsultCard(props) {
   const [modal, setModal] = useState(false);

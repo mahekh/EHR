@@ -1,7 +1,7 @@
 import React from 'react'
 import "../styles/DocProfile.css";
 import paticon from "../assets/pat-icon.png";
-import { getDoctorDetails } from '../services/doctorService';
+import { getDoctorDetails } from '../functionalities/doctorFunctionalities';
 import { useEffect } from 'react';
 import { useState } from 'react';
 

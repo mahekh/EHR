@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import DoctorSidebar from "./DoctorSidebar";
 import DoctorViewCard from './DoctorViewCard';
 import Header from "./Header";
-import { getAllPatients, getPatientDetails } from "../services/doctorService";
+import { getAllPatients, getPatientDetails } from "../functionalities/doctorFunctionalities";
 
 function DoctorView() {
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import adddoc from "../assets/add-doc.jpg";
-import { addDoctorfunction } from '../services/adminService';
+import { addDoctorfunction } from '../functionalities/adminFunctionalities';
 
 
 function AddDoc() {

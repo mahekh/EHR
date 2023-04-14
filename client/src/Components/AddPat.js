@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import addpatient from "../assets/add-patient.jpg";
-import { AddPatientfunction } from '../services/adminService';
+import { addPatientfunction } from '../functionalities/adminFunctionalities';
 
 
 function AddPat() {
@@ -37,7 +37,7 @@ function AddPat() {
     console.log(patient_profile);
 
     // calling the function from the admin service to add the patient details 
-    AddPatientfunction(patient_profile).then(r => {
+    addPatientfunction(patient_profile).then(r => {
       console.log("Patient has been added");
     })
     

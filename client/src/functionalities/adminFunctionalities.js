@@ -11,10 +11,10 @@ const web3Helper = new Web3Helper();  // using web3
 //checking whether its connected as admin account
 export const isAdmin = () => {
   return new Promise((resolve, reject) => {
-    web3Helper.getContracts().then((c) => {
-      console.log(c);
-      web3Helper.getCurrentAccount().then((a) => {
-        c.methods
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      console.log(EHRcontract);
+      web3Helper.connectedAccount().then((a) => {
+        EHRcontract.methods
           .checkAdmin()
           .call({ from: a })
           .then((r) => {
@@ -34,10 +34,10 @@ export const addDoctorfunction = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
     ipfs.add(JSON.stringify(data)).then((result) => {
-      web3Helper.getContracts().then((c) => {
-        console.log(c);
-        web3Helper.getCurrentAccount().then((a) => {
-          c.methods
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((a) => {
+          EHRcontract.methods
             .addDoctor(data.id, result.path)
             .send({ from: a })
             .on("confirmation", (r) => {
@@ -54,14 +54,14 @@ export const addDoctorfunction = (data) => {
 
 
 //adding patient 
-export const AddPatientfunction = (data) => {
+export const addPatientfunction = (data) => {
   let ipfs = new IPFS().getIPFS();
   return new Promise((resolve, reject) => {
     ipfs.add(JSON.stringify(data)).then((result) => {
-      web3Helper.getContracts().then((c) => {
-        console.log(c);
-        web3Helper.getCurrentAccount().then((a) => {
-          c.methods
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((a) => {
+          EHRcontract.methods
             .addPatient(data.id, result.path)
             .send({ from: a })
             .on("confirmation", (r) => {
@@ -81,9 +81,9 @@ export const getAllpatientsAdmin = () => {
   let patientDetails = [];
 
   return new Promise((resolve, reject) => {
-    web3Helper.getContracts().then((c) => {
-      c.methods
-        .getAllPat()
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      EHRcontract.methods
+        .allPatientsList()
         .call()
         .then((listOfPateints) => {
           listOfPateints.forEach((pat) => {
@@ -116,9 +116,9 @@ export const getAllDoctorsAdmin = () => {
   let DoctorDetails = [];
 
   return new Promise((resolve, reject) => {
-    web3Helper.getContracts().then((c) => {
-      c.methods
-        .getAllDoc()
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      EHRcontract.methods
+        .allDoctorsList()
         .call()
         .then((listOfDoctors) => {
           console.log(listOfDoctors)
@@ -151,11 +151,11 @@ export const deleteDoctorfunction = (id) => {
 
   return new Promise((resolve, reject) => {
    
-      web3Helper.getContracts().then((c) => {
-        console.log(c);
-        web3Helper.getCurrentAccount().then((a) => {
-          c.methods
-            .deleteDoc(id)
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((a) => {
+          EHRcontract.methods
+            .deleteDoctor(id)
             .send({ from: a })
             .on("confirmation", (r) => {
               resolve(r);
@@ -173,11 +173,11 @@ export const deletePatientfunction = (id) => {
   
   return new Promise((resolve, reject) => {
     
-      web3Helper.getContracts().then((c) => {
-        console.log(c);
-        web3Helper.getCurrentAccount().then((a) => {
-          c.methods
-            .deletePat(id)
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((a) => {
+          EHRcontract.methods
+            .deletePatient(id)
             .send({ from: a })
             .on("confirmation", (r) => {
               resolve(r);

@@ -23,12 +23,12 @@ export class Web3Helper {
       web3.eth.net
         .getId()
         .then((id) => {
-          let abi = EHR.abi;
-          let network_data = EHR.networks[id]; //get network data for the deployed contracts
+          // let contractABI = EHR.abi;
+          // let network_data = EHR.networks[id]; //get network data for the deployed contracts
 
-          if (network_data) {
-            let address = network_data.address;
-            this.contract = new web3.eth.Contract(abi, address); //get our deployed contracts, "address" and abi from the json file, connecting with the contracts that is deployed in ganache
+          if (EHR.networks[id]) {
+            // let address = network_data.address;
+            this.contract = new web3.eth.Contract(EHR.abi, EHR.networks[id].address); //get our deployed contracts, "address" and abi from the json file, connecting with the contracts that is deployed in ganache
           }
         })
         .catch((error) => {
@@ -51,7 +51,7 @@ export class Web3Helper {
   }
 
   // retrieving the current connected account in metamask
-  getCurrentAccount() {
+  connectedAccount() {
     return new Promise((resolve, reject) => {
       if (this.web3) {
         this.web3.eth.getAccounts().then((accs) => {
@@ -62,7 +62,7 @@ export class Web3Helper {
   }
 
   //getting the deployed contracts 
-  getContracts() {
+  deployedContracts() {
     let retry = false;
     return new Promise((resolve, reject) => {
       let check = setInterval(() => {

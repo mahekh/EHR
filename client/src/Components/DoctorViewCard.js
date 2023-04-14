@@ -2,7 +2,7 @@ import "../styles/ConsultCard.css";
 import "../styles/MedicalReport.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from "react";
-import { viewMedicalRecord } from "../services/doctorService";
+import { viewMedicalRecord } from "../functionalities/doctorFunctionalities";
 
 function DoctorViewCard(props) {
   const [modal, setModal] = useState(false);

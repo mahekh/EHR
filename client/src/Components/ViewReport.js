@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 
-import { viewMedicalRecord } from "../services/patientService";
+import { viewMedicalRecord } from "../functionalities/patientFunctionalities";
 import "../styles/ViewReport.css";
 
 function ViewReport() {

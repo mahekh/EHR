@@ -1,7 +1,7 @@
 import "../styles/ConsultCard.css";
 import paticon from "../assets/pat-icon.png";
 import React from 'react'
-import { deleteDoctorfunction } from "../services/adminService";
+import { deleteDoctorfunction } from "../functionalities/adminFunctionalities";
 
 function DoctorCard(props) {
 

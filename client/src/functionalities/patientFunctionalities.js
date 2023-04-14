@@ -8,11 +8,11 @@ let ipfs = new IPFS().getIPFS();
 //checking if it is patient
 export const isPatient = () => {
   return new Promise((resolve, reject) => {
-    web3Helper.getContracts().then((c) => {
-      console.log(c);
-      web3Helper.getCurrentAccount().then((a) => {
-        c.methods
-          .isPatient(a)
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      console.log(EHRcontract);
+      web3Helper.connectedAccount().then((a) => {
+        EHRcontract.methods
+          .checkPatient(a)
           .call()
           .then((r) => {
             resolve(r);
@@ -30,9 +30,9 @@ export const isPatient = () => {
 export const getPatientDetails = () => {
 
   return new Promise((resolve, reject) => {
-    web3Helper.getContracts().then((c) => {
-        web3Helper.getCurrentAccount().then(id => {
-            c.methods.getPatinfo(id).call().then(hash => {
+    web3Helper.deployedContracts().then((EHRcontract) => {
+        web3Helper.connectedAccount().then(id => {
+          EHRcontract.methods.patientInformation(id).call().then(hash => {
                 axios
                 .get("http://localhost:8080/ipfs/" + hash)
                 .then(function (response) {
@@ -59,10 +59,10 @@ export const getPatientDetails = () => {
 export const viewMedicalRecord = () => {
   return new Promise((resolve, reject) => {
      
-      web3Helper.getContracts().then((c) => {
-        console.log(c);
-        web3Helper.getCurrentAccount().then((a) => {
-          c.methods
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((a) => {
+          EHRcontract.methods
             .viewMedicalRecord(a)
             .call()
             .then((r) => {

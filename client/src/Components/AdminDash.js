@@ -8,7 +8,7 @@ import { BiGroup } from "react-icons/bi";
 import { FiActivity } from "react-icons/fi";
 import { useEffect } from "react";
 import { useState } from "react";
-import { isAdmin } from "../services/adminService";
+import { isAdmin } from "../functionalities/adminFunctionalities";
 
 function AdminDash() {
   const [admin, setadmin] = useState(false);

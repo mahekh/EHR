@@ -23,7 +23,7 @@ function App() {
     let web3 = new Web3Helper();
     let ipfs = new IPFS();
     web3.getWeb3().then(() => {
-      web3.getCurrentAccount().then((id) => {
+      web3.deployedContracts().then((id) => {
         setAccount(id);
       });
     });

@@ -61,26 +61,26 @@ contract EHR {
         allPatList.push(patientId); // push pat id to array all pat list
     }
 
-    function isDoctor(address d_id) public view returns (bool) {
+    function checkDoctor(address d_id) public view returns (bool) {
         return doctor_role.has(d_id);
     }
 
-    function isPatient(address p_id) public view returns (bool) {
+    function checkPatient(address p_id) public view returns (bool) {
         return patient_role.has(p_id);
     }
 
     // retrive the doctor ipfs hash for that given doctor id
-    function getDocinfo(address id) public view returns (string memory) {
+    function doctorInformation(address id) public view returns (string memory) {
         return doctormap[id].doctor_ipfs_hash;
     }
 
     // retrive the patient ipfs hash for the given patient id
-    function getPatinfo(address id) public view returns (string memory) {
+    function patientInformation(address id) public view returns (string memory) {
         return patientmap[id].patient_ipfs_hash;
     }
 
     // retriving an array of doctor struct, meaning retriveing the doctor id and ipfs hash (the struct contains the id and hash)
-    function getAllDoc() public view returns (Doctor[] memory) {
+    function allDoctorsList() public view returns (Doctor[] memory) {
         Doctor[] memory allDocs = new Doctor[](allDocList.length); //creating temporary array
 
         uint256 i = 0;
@@ -95,7 +95,7 @@ contract EHR {
     }
 
     // retriving an array of patient struct, meaning retriveing the patient id and ipfs hash
-    function getAllPat() public view returns (Patient[] memory) {
+    function allPatientsList() public view returns (Patient[] memory) {
         Patient[] memory allPat = new Patient[](allPatList.length); //creating temporary array
 
         uint256 i = 0;
@@ -125,9 +125,9 @@ contract EHR {
 
 
     //removing the doctor role 
-    function deleteDoc(address docid) public {
+    function deleteDoctor(address docid) public {
         
-            require(isDoctor(docid), "Invalid doctor address");
+            require(checkDoctor(docid), "Invalid doctor address");
             uint256 j = 0;
             address[] memory temp = new address[](allDocList.length - 1);
             for (uint256 i = 0; i < allDocList.length; i++) {
@@ -141,9 +141,9 @@ contract EHR {
 
 
     //removing the patient role 
-    function deletePat(address patid) public {  
+    function deletePatient(address patid) public {  
 
-        require(isPatient(patid), "Invalid patient address");
+        require(checkPatient(patid), "Invalid patient address");
         uint256 j = 0;
         address[] memory temp = new address[](allPatList.length - 1);
         for (uint256 i = 0; i < allPatList.length; i++) {
