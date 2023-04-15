@@ -10,9 +10,9 @@ export const isPatient = () => {
   return new Promise((resolve, reject) => {
     web3Helper.deployedContracts().then((EHRcontract) => {
       console.log(EHRcontract);
-      web3Helper.connectedAccount().then((a) => {
+      web3Helper.connectedAccount().then((account) => {
         EHRcontract.methods
-          .checkPatient(a)
+          .checkPatient(account)
           .call()
           .then((r) => {
             resolve(r);

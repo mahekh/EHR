@@ -7,9 +7,6 @@ import DoctorCard from './DoctorCard';
 import Header from './Header'
 
 
-
-
-
 function DoctorList() 
 {
 
@@ -19,7 +16,6 @@ function DoctorList()
   useEffect(() => {
     
     getAllDoctorsAdmin().then(d => {
-
       setDocdetails(d)
       console.log(d)
     })

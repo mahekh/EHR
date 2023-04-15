@@ -15,9 +15,9 @@ function AdminDash() {
 
   // checking if it is admin by calling the fuction from admin service
   useEffect(() => {
-    isAdmin().then((ad) => {
-      setadmin(ad);
-      console.log(ad)
+    isAdmin().then((admin) => {
+      setadmin(admin);
+      console.log(admin)
     });
 
     return () => {};

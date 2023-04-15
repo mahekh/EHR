@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
+// DOCS
+// https://docs.openzeppelin.com/contracts/2.x/api/access#Roles
+
 /**
  * @title Roles
  * @dev Library for managing addresses assigned to a Role.
@@ -37,6 +40,3 @@ library Roles {
 }
 
 
-// DOCS
-
-// https://docs.openzeppelin.com/contracts/2.x/api/access#Roles

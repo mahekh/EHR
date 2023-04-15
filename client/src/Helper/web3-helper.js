@@ -1,7 +1,5 @@
 import Web3 from "web3";
 
-// https://web3js.readthedocs.io/en/v1.2.11/web3-eth-net.html
-// https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html
 // https://web3js.readthedocs.io/en/v1.2.11/web3-eth-net.html#eth-net
 // https://docs.metamask.io/wallet/reference/provider-api/
 
@@ -16,18 +14,16 @@ export class Web3Helper {
 
   constructor() {
     window.ethereum.on("accountsChanged", (account) => {
-      window.location.reload();
+    window.location.reload();
     });
 
     this.getWeb3().then((web3) => {
-      web3.eth.net
-        .getId()
-        .then((id) => {
-          // let contractABI = EHR.abi;
-          // let network_data = EHR.networks[id]; //get network data for the deployed contracts
+      //Gets the current network ID https://web3js.readthedocs.io/en/v1.2.11/web3-eth-net.html
+      web3.eth.net.getId().then((id) => {
 
+          //get network data for the deployed contracts
           if (EHR.networks[id]) {
-            // let address = network_data.address;
+            // create a new contract object https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html
             this.contract = new web3.eth.Contract(EHR.abi, EHR.networks[id].address); //get our deployed contracts, "address" and abi from the json file, connecting with the contracts that is deployed in ganache
           }
         })
@@ -71,7 +67,7 @@ export class Web3Helper {
           clearInterval(check);
         } else {
           if (!retry) {
-            this.getContracts();
+            this.deployedContracts();
             retry = true;
           } else {
             reject(null);

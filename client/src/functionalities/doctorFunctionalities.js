@@ -10,9 +10,9 @@ export const isDoctor = () => {
   return new Promise((resolve, reject) => {
     web3Helper.deployedContracts().then((EHRcontract) => {
       console.log(EHRcontract);
-      web3Helper.connectedAccount().then((a) => {
+      web3Helper.connectedAccount().then((account) => {
         EHRcontract.methods
-          .checkDoctor(a)
+          .checkDoctor(account)
           .call()
           .then((r) => {
             resolve(r);
@@ -81,11 +81,11 @@ export const addMedicalRecord = (data) => {
       web3Helper.deployedContracts().then((EHRcontract) => {
         console.log(EHRcontract);
         console.log(data);
-        web3Helper.connectedAccount().then((a) => {
-          data.doctor = a;
+        web3Helper.connectedAccount().then((account) => {
+          data.doctor = account;
           EHRcontract.methods
             .addMedicalRecord(data.patient, result.path)
-            .send({ from: a })
+            .send({ from: account })
             .on("confirmation", (r) => {
               resolve(r);
             })

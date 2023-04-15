@@ -26,12 +26,12 @@ contract EHR {
 
     // for a given address, it will return the struct for doctor or patient (mapping)
     //map address to their respective structs 
-    mapping(address => Doctor) doctormap;
-    mapping(address => Patient) patientmap;
-    mapping(address => MedicalRecords) recordmap;
+    mapping(address => Doctor) doctorMap;
+    mapping(address => Patient) patientMap;
+    mapping(address => MedicalRecords) recordMap;
 
-    address[] allDocList;
-    address[] allPatList;
+    address[] allDoctorList;
+    address[] allPatientList;
 
     // whoever deploys the contracts is the admin
     constructor() {
@@ -44,21 +44,21 @@ contract EHR {
 
     // for adding doctor we need id and ipfs hash
     function addDoctor(address docId, string memory docHash) public {
-        Doctor storage doc = doctormap[docId]; // creating a map for structure doctor
+        Doctor storage doc = doctorMap[docId]; // creating a map for structure doctor
         // this will add doctor details for the structure Doctor
         doc.doctor_id = docId;
         doc.doctor_ipfs_hash = docHash;
         doctor_role.add(docId); // this will add doctor role
-        allDocList.push(docId); // push doc id to array all doc list
+        allDoctorList.push(docId); // push doc id to array all doc list
     }
 
     function addPatient(address patientId, string memory patientHash) public {
-        Patient storage pat = patientmap[patientId]; // creating a map for structure patient
+        Patient storage pat = patientMap[patientId]; // creating a map for structure patient
         // this will add patient details for the structure Patient
         pat.patient_id = patientId;
         pat.patient_ipfs_hash = patientHash;
         patient_role.add(patientId); // this will add patient role
-        allPatList.push(patientId); // push pat id to array all pat list
+        allPatientList.push(patientId); // push pat id to array all pat list
     }
 
     function checkDoctor(address d_id) public view returns (bool) {
@@ -71,56 +71,56 @@ contract EHR {
 
     // retrive the doctor ipfs hash for that given doctor id
     function doctorInformation(address id) public view returns (string memory) {
-        return doctormap[id].doctor_ipfs_hash;
+        return doctorMap[id].doctor_ipfs_hash;
     }
 
     // retrive the patient ipfs hash for the given patient id
     function patientInformation(address id) public view returns (string memory) {
-        return patientmap[id].patient_ipfs_hash;
+        return patientMap[id].patient_ipfs_hash;
     }
 
     // retriving an array of doctor struct, meaning retriveing the doctor id and ipfs hash (the struct contains the id and hash)
     function allDoctorsList() public view returns (Doctor[] memory) {
-        Doctor[] memory allDocs = new Doctor[](allDocList.length); //creating temporary array
+        Doctor[] memory allDoctors = new Doctor[](allDoctorList.length); //creating temporary array
 
         uint256 i = 0;
 
-        for (i = 0; i < allDocList.length; i++) {
-            if (doctor_role.has(allDocList[i])) {
-                allDocs[i] = doctormap[allDocList[i]]; //filling alldocs with the addresses in alldocslist
+        for (i = 0; i < allDoctorList.length; i++) {
+            if (doctor_role.has(allDoctorList[i])) {
+                allDoctors[i] = doctorMap[allDoctorList[i]]; //filling alldocs with the addresses in alldocslist
             }
         }
 
-        return allDocs;
+        return allDoctors;
     }
 
     // retriving an array of patient struct, meaning retriveing the patient id and ipfs hash
     function allPatientsList() public view returns (Patient[] memory) {
-        Patient[] memory allPat = new Patient[](allPatList.length); //creating temporary array
+        Patient[] memory allPatients = new Patient[](allPatientList.length); //creating temporary array
 
         uint256 i = 0;
 
-        for (i = 0; i < allPatList.length; i++) {
-            if (patient_role.has(allPatList[i])) {
-                allPat[i] = patientmap[allPatList[i]]; //filling allpat with the addresses in allpatlist
+        for (i = 0; i < allPatientList.length; i++) {
+            if (patient_role.has(allPatientList[i])) {
+                allPatients[i] = patientMap[allPatientList[i]]; //filling allpat with the addresses in allpatlist
             }
         }
 
-        return allPat;
+        return allPatients;
     }
 
     // adding in the medical record struct which is mapped with patient id
     function addMedicalRecord(address patid, string memory pathash) public {
         require(doctor_role.has(msg.sender), "Only doctors can add records");
 
-        MedicalRecords storage medrecord = recordmap[patid];
+        MedicalRecords storage medrecord = recordMap[patid];
         medrecord.medical_ipfs_hash = pathash;
     }
 
     // viewing the medical record which is mapped with patient id, returns the medical record ipfs hash
     function viewMedicalRecord(address patid) public view returns (string memory)
     {
-        return recordmap[patid].medical_ipfs_hash;
+        return recordMap[patid].medical_ipfs_hash;
     }
 
 
@@ -129,14 +129,14 @@ contract EHR {
         
             require(checkDoctor(docid), "Invalid doctor address");
             uint256 j = 0;
-            address[] memory temp = new address[](allDocList.length - 1);
-            for (uint256 i = 0; i < allDocList.length; i++) {
-                if (allDocList[i] != docid) {
-                    temp[j++] = allDocList[i];
+            address[] memory temp = new address[](allDoctorList.length - 1);
+            for (uint256 i = 0; i < allDoctorList.length; i++) {
+                if (allDoctorList[i] != docid) {
+                    temp[j++] = allDoctorList[i];
                 }
             }
             doctor_role.remove(docid);
-            allDocList = temp;
+            allDoctorList = temp;
         }
 
 
@@ -145,14 +145,14 @@ contract EHR {
 
         require(checkPatient(patid), "Invalid patient address");
         uint256 j = 0;
-        address[] memory temp = new address[](allPatList.length - 1);
-        for (uint256 i = 0; i < allPatList.length; i++) {
-            if (allPatList[i] != patid) {
-                temp[j++] = allPatList[i];
+        address[] memory temp = new address[](allPatientList.length - 1);
+        for (uint256 i = 0; i < allPatientList.length; i++) {
+            if (allPatientList[i] != patid) {
+                temp[j++] = allPatientList[i];
             }
         }
-    patient_role.remove(patid);
-    allPatList = temp;
+        patient_role.remove(patid);
+        allPatientList = temp;
 
 }
 }

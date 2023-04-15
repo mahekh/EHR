@@ -13,10 +13,10 @@ export const isAdmin = () => {
   return new Promise((resolve, reject) => {
     web3Helper.deployedContracts().then((EHRcontract) => {
       console.log(EHRcontract);
-      web3Helper.connectedAccount().then((a) => {
+      web3Helper.connectedAccount().then((account) => {
         EHRcontract.methods
           .checkAdmin()
-          .call({ from: a })
+          .call({ from: account })
           .then((r) => {
             resolve(r);
           })
@@ -36,10 +36,10 @@ export const addDoctorfunction = (data) => {
     ipfs.add(JSON.stringify(data)).then((result) => {
       web3Helper.deployedContracts().then((EHRcontract) => {
         console.log(EHRcontract);
-        web3Helper.connectedAccount().then((a) => {
+        web3Helper.connectedAccount().then((account) => {
           EHRcontract.methods
             .addDoctor(data.id, result.path)
-            .send({ from: a })
+            .send({ from: account })
             .on("confirmation", (r) => {
               resolve(r);
             })
@@ -60,10 +60,10 @@ export const addPatientfunction = (data) => {
     ipfs.add(JSON.stringify(data)).then((result) => {
       web3Helper.deployedContracts().then((EHRcontract) => {
         console.log(EHRcontract);
-        web3Helper.connectedAccount().then((a) => {
+        web3Helper.connectedAccount().then((account) => {
           EHRcontract.methods
             .addPatient(data.id, result.path)
-            .send({ from: a })
+            .send({ from: account })
             .on("confirmation", (r) => {
               resolve(r);
             })
