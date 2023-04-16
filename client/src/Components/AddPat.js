@@ -2,16 +2,14 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import addpatient from "../assets/add-patient.jpg";
-// import { addPatientfunction } from '../functionalities/adminFunctionalities';
 
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
 
-const web3Helper = new Web3Helper();  // using web3 
+const web3Helper = new Web3Helper();  // using web3, creating a web3 instance
 
 
 function AddPat() {
-
 
   const [modal, setModal] = useState(false);
 
@@ -41,7 +39,6 @@ function AddPat() {
     const patient_profile = { firstName, lastName, email, number, id, city, country };
     console.log(patient_profile);
 
-    // calling the function from the admin service to add the patient details 
     addPatientfunction(patient_profile).then(r => {
       console.log("Patient has been added");
     })

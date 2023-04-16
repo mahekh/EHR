@@ -1,7 +1,6 @@
 import "../styles/ConsultCard.css";
 import paticon from "../assets/pat-icon.png";
 import React from 'react'
-// import { deleteDoctorfunction } from "../functionalities/adminFunctionalities";
 import axios from "axios";
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
@@ -11,14 +10,7 @@ function DoctorCard(props) {
 
   function handleDelete (id) {
 
-    // calling the delete function from doctor service 
-    // deleteDoctorfunction(id).then(r => {
-    //   console.log("Doctor has been deleted")
-    //   window.location.reload()
-    // })
-
     return new Promise((resolve, reject) => {
-   
       web3Helper.deployedContracts().then((EHRcontract) => {
         console.log(EHRcontract);
         web3Helper.connectedAccount().then((a) => {
@@ -76,25 +68,3 @@ function DoctorCard(props) {
 }
 
 export default DoctorCard;
-
-// deleting the doctor 
-// export const deleteDoctorfunction = (id) => {
-
-//   return new Promise((resolve, reject) => {
-   
-//       web3Helper.deployedContracts().then((EHRcontract) => {
-//         console.log(EHRcontract);
-//         web3Helper.connectedAccount().then((a) => {
-//           EHRcontract.methods
-//             .deleteDoctor(id)
-//             .send({ from: a })
-//             .on("confirmation", (r) => {
-//               resolve(r);
-//             })
-//             .on("error", (err) => {
-//               reject(err);
-//             });
-//         });
-//       });
-//     });
-// };

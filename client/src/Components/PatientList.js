@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-// import { getAllpatientsAdmin } from '../functionalities/adminFunctionalities';
 import AdminSidebar from './AdminSidebar';
 import Header from './Header'
 import PatientCard from './PatientCard';
@@ -21,7 +20,6 @@ function PatientList()
     
     //getting all the patients in the network by using the function from admin service 
     getAllpatientsAdmin().then(p => {
-
       setpatDetails(p)
       console.log(p)
     })

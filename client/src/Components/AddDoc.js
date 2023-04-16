@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import adddoc from "../assets/add-doc.jpg";
-// import { addDoctorfunction } from '../functionalities/adminFunctionalities';
 
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
 
-const web3Helper = new Web3Helper();  // using web3 
+const web3Helper = new Web3Helper();  // using web3, creating a web3 instance
 
 
 function AddDoc() {
@@ -39,7 +38,6 @@ function AddDoc() {
     const doc_profile = { firstName, lastName, email, number, id, city, country };
     console.log(doc_profile);
 
-    // calling the function from the admin functionalities to add the doctor details 
     addDoctorfunction(doc_profile).then(r => {
       console.log("Doctor has been added");
     })

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-// import { viewMedicalRecord } from "../functionalities/patientFunctionalities";
 import "../styles/ViewReport.css";
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";

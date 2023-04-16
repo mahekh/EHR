@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { getAllPatients, getPatientDetails } from "../functionalities/doctorFunctionalities";
 import ConsultCard from "./ConsultCard";
 import DoctorSidebar from "./DoctorSidebar";
 import Header from "./Header";
@@ -14,7 +13,7 @@ const ConsultationDesk = () => {
   const [allPatients, setallPatients] = useState([]);
   const [patientDetails, setpatientDetails] = useState([]);
 
-  // getting the list of patients from the function in doctor service 
+  // getting the list of patients  
   useEffect(() => {
     getAllPatients().then((list_of_patients) => {
       setallPatients(list_of_patients);

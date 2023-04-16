@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-// import { isDoctor } from "../functionalities/doctorFunctionalities";
 import Docprofile from "./Docprofile";
 import DoctorSidebar from "./DoctorSidebar";
 import Header from "./Header";

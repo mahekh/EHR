@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-// import { getAllDoctorsAdmin } from '../functionalities/adminFunctionalities';
 import AdminSidebar from './AdminSidebar';
 import DoctorCard from './DoctorCard';
 import Header from './Header'
@@ -17,7 +16,6 @@ function DoctorList()
 
   const [Docdetails, setDocdetails] = useState([])
 
-  // calling the function from admin service 
   useEffect(() => {
     
     getAllDoctorsAdmin().then(d => {

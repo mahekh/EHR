@@ -2,7 +2,6 @@ import React from "react";
 import PatientSidebar from "./PatientSidebar";
 import Header from "./Header";
 import PatProfile from "./PatProfile";
-// import { isPatient } from "../functionalities/patientFunctionalities";
 import { useState } from "react";
 import { useEffect } from "react";
 import { IPFS } from "../Helper/ipfs-helper";

@@ -2,7 +2,6 @@ import "../styles/ConsultCard.css";
 import "../styles/MedicalReport.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from "react";
-// import { addMedicalRecord } from "../functionalities/doctorFunctionalities";
 
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
@@ -61,7 +60,6 @@ function ConsultCard(props) {
     MedRecord.patient = props.details.id;
     MedRecord.record = patient_report;
 
-    // calling the function from doctor service to add the medical record 
     addMedicalRecord(MedRecord).then((r) => {
       console.log("Doctor Added the medical record");
     });

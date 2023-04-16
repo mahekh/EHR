@@ -3,8 +3,6 @@ import AdminSidebar from './AdminSidebar';
 import Header from './Header'
 import AddDoc from './AddDoc'
 
-
-
 function DoctorDesk() 
 {
   return (

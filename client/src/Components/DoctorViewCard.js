@@ -2,7 +2,6 @@ import "../styles/ConsultCard.css";
 import "../styles/MedicalReport.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from "react";
-// import { viewMedicalRecord } from "../functionalities/doctorFunctionalities";
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
 import axios from "axios";

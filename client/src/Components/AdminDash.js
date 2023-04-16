@@ -8,7 +8,6 @@ import { BiGroup } from "react-icons/bi";
 import { FiActivity } from "react-icons/fi";
 import { useEffect } from "react";
 import { useState } from "react";
-// import { isAdmin } from "../functionalities/adminFunctionalities";
 
 import { Web3Helper } from "../Helper/web3-helper";
 const web3Helper = new Web3Helper(); 
@@ -18,7 +17,6 @@ const web3Helper = new Web3Helper();
 function AdminDash() {
   const [admin, setadmin] = useState(false);
 
-  // checking if it is admin by calling the fuction from admin functionalities
   useEffect(() => {
     isAdmin().then((admin) => {
       setadmin(admin);

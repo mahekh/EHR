@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import DoctorSidebar from "./DoctorSidebar";
 import DoctorViewCard from './DoctorViewCard';
 import Header from "./Header";
-// import { getAllPatients, getPatientDetails } from "../functionalities/doctorFunctionalities";
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
 import axios from "axios";

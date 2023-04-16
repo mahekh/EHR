@@ -1,7 +1,6 @@
 import React from 'react'
 import "../styles/DocProfile.css";
 import paticon from "../assets/pat-icon.png";
-// import { getDoctorDetails } from '../functionalities/doctorFunctionalities';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { IPFS } from "../Helper/ipfs-helper";
@@ -14,7 +13,6 @@ function Docprofile() {
 
   const [docDetails, setdocDetails] = useState({})
 
-  // get doctor details using function from doctor service
   useEffect(() => {
     getDoctorDetails().then(d => {
       setdocDetails(d);
