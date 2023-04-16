@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import addpatient from "../assets/add-patient.jpg";
-import { addPatientfunction } from '../functionalities/adminFunctionalities';
+// import { addPatientfunction } from '../functionalities/adminFunctionalities';
+
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+
+const web3Helper = new Web3Helper();  // using web3 
 
 
 function AddPat() {
@@ -103,4 +108,27 @@ function AddPat() {
   )
 }
 
-export default AddPat
+export default AddPat;
+
+//adding patient 
+export const addPatientfunction = (data) => {
+  let ipfs = new IPFS().getIPFS();
+  return new Promise((resolve, reject) => {
+    ipfs.add(JSON.stringify(data)).then((result) => {
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((account) => {
+          EHRcontract.methods
+            .addPatient(data.id, result.path)
+            .send({ from: account })
+            .on("confirmation", (r) => {
+              resolve(r);
+            })
+            .on("error", (err) => {
+              reject(err);
+            });
+        });
+      });
+    });
+  });
+};

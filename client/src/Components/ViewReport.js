@@ -1,9 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-
-import { viewMedicalRecord } from "../functionalities/patientFunctionalities";
+// import { viewMedicalRecord } from "../functionalities/patientFunctionalities";
 import "../styles/ViewReport.css";
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
+const web3Helper = new Web3Helper();
+let ipfs = new IPFS().getIPFS();
+
 
 function ViewReport() {
   const [patMedrec, setpatMedrec] = useState({});
@@ -113,3 +118,37 @@ function ViewReport() {
 }
 
 export default ViewReport;
+
+// getting the medical record from the ipfs hash
+export const viewMedicalRecord = () => {
+  return new Promise((resolve, reject) => {
+     
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((a) => {
+          EHRcontract.methods
+            .viewMedicalRecord(a)
+            .call()
+            .then((r) => {
+              axios
+              .get("http://localhost:8080/ipfs/" + r)
+              .then(function (response) {
+                // handle success
+                console.log(response);
+                resolve(response.data);
+              })
+              .catch(function (error) {
+                // handle error
+                console.log(error);
+              })
+              .finally(function () {
+                // always executed
+              });
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        });
+      });
+    });
+};

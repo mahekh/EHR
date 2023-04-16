@@ -1,10 +1,15 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { getAllDoctorsAdmin } from '../functionalities/adminFunctionalities';
+// import { getAllDoctorsAdmin } from '../functionalities/adminFunctionalities';
 import AdminSidebar from './AdminSidebar';
 import DoctorCard from './DoctorCard';
 import Header from './Header'
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
+
+const web3Helper = new Web3Helper();  // using web3 
 
 
 function DoctorList() 
@@ -49,5 +54,38 @@ function DoctorList()
 }
 
 
-
 export default DoctorList;
+
+export const getAllDoctorsAdmin = () => {
+  let DoctorDetails = [];
+
+  return new Promise((resolve, reject) => {
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      EHRcontract.methods
+        .allDoctorsList()
+        .call()
+        .then((listOfDoctors) => {
+          console.log(listOfDoctors)
+          listOfDoctors.forEach((doc) => {
+            axios
+              .get("http://localhost:8080/ipfs/" + doc.doctor_ipfs_hash)
+              .then(function (response) {
+                // handle success
+                DoctorDetails.push(response.data);
+                console.log(response);
+                resolve(DoctorDetails);
+              })
+              .catch(function (error) {
+                // handle error
+                console.log(error);
+              })
+              .finally(function () {
+                // always executed
+              });
+            if (listOfDoctors.length === DoctorDetails.length)
+              resolve(DoctorDetails);
+          });
+        });
+    });
+  });
+};

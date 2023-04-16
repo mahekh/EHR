@@ -8,12 +8,17 @@ import { BiGroup } from "react-icons/bi";
 import { FiActivity } from "react-icons/fi";
 import { useEffect } from "react";
 import { useState } from "react";
-import { isAdmin } from "../functionalities/adminFunctionalities";
+// import { isAdmin } from "../functionalities/adminFunctionalities";
+
+import { Web3Helper } from "../Helper/web3-helper";
+const web3Helper = new Web3Helper(); 
+
+
 
 function AdminDash() {
   const [admin, setadmin] = useState(false);
 
-  // checking if it is admin by calling the fuction from admin service
+  // checking if it is admin by calling the fuction from admin functionalities
   useEffect(() => {
     isAdmin().then((admin) => {
       setadmin(admin);
@@ -120,3 +125,22 @@ const Section = styled.section`
 `;
 
 export default AdminDash;
+
+export const isAdmin = () => {
+  return new Promise((resolve, reject) => {
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      console.log(EHRcontract);
+      web3Helper.connectedAccount().then((account) => {
+        EHRcontract.methods
+          .checkAdmin()
+          .call({ from: account })
+          .then((r) => {
+            resolve(r);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    });
+  });
+};

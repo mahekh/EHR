@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getAllpatientsAdmin } from '../functionalities/adminFunctionalities';
+// import { getAllpatientsAdmin } from '../functionalities/adminFunctionalities';
 import AdminSidebar from './AdminSidebar';
 import Header from './Header'
 import PatientCard from './PatientCard';
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
 
-
-
+const web3Helper = new Web3Helper();  // using web3 
 
 
 function PatientList() 
@@ -53,5 +55,38 @@ function PatientList()
 }
 
 
-
 export default PatientList;
+
+// getting all the list of patients from blockchain, it will retrieve all the patient ipfs hash 
+export const getAllpatientsAdmin = () => {
+  let patientDetails = [];
+
+  return new Promise((resolve, reject) => {
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      EHRcontract.methods
+        .allPatientsList()
+        .call()
+        .then((listOfPateints) => {
+          listOfPateints.forEach((pat) => {
+            axios
+              .get("http://localhost:8080/ipfs/" + pat.patient_ipfs_hash)
+              .then(function (response) {
+                // handle success
+                patientDetails.push(response.data);
+                console.log(response);
+                resolve(patientDetails);
+              })
+              .catch(function (error) {
+                // handle error
+                console.log(error);
+              })
+              .finally(function () {
+                // always executed
+              });
+            if (listOfPateints.length === patientDetails.length)
+              resolve(patientDetails);
+          });
+        });
+    });
+  });
+};

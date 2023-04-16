@@ -4,7 +4,12 @@ import { useEffect } from 'react';
 import DoctorSidebar from "./DoctorSidebar";
 import DoctorViewCard from './DoctorViewCard';
 import Header from "./Header";
-import { getAllPatients, getPatientDetails } from "../functionalities/doctorFunctionalities";
+// import { getAllPatients, getPatientDetails } from "../functionalities/doctorFunctionalities";
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
+const web3Helper = new Web3Helper();
+let ipfs = new IPFS().getIPFS();
 
 function DoctorView() {
 
@@ -59,4 +64,51 @@ function DoctorView() {
   )
 }
 
-export default DoctorView
+export default DoctorView;
+
+// returns all patients struct 
+export const getAllPatients = () => {
+  return new Promise((resolve, reject) => {
+    web3Helper.deployedContracts().then((EHRcontract) => {
+      console.log(EHRcontract);
+      web3Helper.connectedAccount().then(() => {
+        EHRcontract.methods
+          .allPatientsList()
+          .call()
+          .then((r) => {
+            resolve(r);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    });
+  });
+};
+
+// return all the patient details from ipfs
+export const getPatientDetails = (listOfPateints) => {
+  let patientDetails = [];
+
+  return new Promise((resolve, reject) => {
+    listOfPateints.forEach((hash) => {
+      axios
+        .get("http://localhost:8080/ipfs/" + hash)
+        .then(function (response) {
+          // handle success
+          patientDetails.push(response.data);
+          console.log(response);
+          resolve(patientDetails);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+      if (listOfPateints.length === patientDetails.length)
+        resolve(patientDetails);
+    });
+  });
+};

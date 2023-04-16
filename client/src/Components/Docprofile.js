@@ -1,9 +1,14 @@
 import React from 'react'
 import "../styles/DocProfile.css";
 import paticon from "../assets/pat-icon.png";
-import { getDoctorDetails } from '../functionalities/doctorFunctionalities';
+// import { getDoctorDetails } from '../functionalities/doctorFunctionalities';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
+const web3Helper = new Web3Helper();
+let ipfs = new IPFS().getIPFS();
 
 function Docprofile() {
 
@@ -100,4 +105,31 @@ function Docprofile() {
   )
 }
 
-export default Docprofile
+export default Docprofile;
+
+// get doctor details from ipfs 
+export const getDoctorDetails = () => {
+
+  return new Promise((resolve, reject) => {
+    web3Helper.deployedContracts().then((EHRcontract) => {
+        web3Helper.connectedAccount().then(id => {
+          EHRcontract.methods.doctorInformation(id).call().then(hash => {
+                axios
+                .get("http://localhost:8080/ipfs/" + hash)
+                .then(function (response) {
+                  // handle success
+                  resolve(response.data);
+                })
+                .catch(function (error) {
+                  // handle error
+                  console.log(error);
+                })
+                .finally(function () {
+                  // always executed
+                });
+        
+                })
+            })
+        })
+  });
+};

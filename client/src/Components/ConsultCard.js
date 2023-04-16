@@ -2,7 +2,13 @@ import "../styles/ConsultCard.css";
 import "../styles/MedicalReport.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from "react";
-import { addMedicalRecord } from "../functionalities/doctorFunctionalities";
+// import { addMedicalRecord } from "../functionalities/doctorFunctionalities";
+
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
+const web3Helper = new Web3Helper();
+let ipfs = new IPFS().getIPFS();
 
 function ConsultCard(props) {
   const [modal, setModal] = useState(false);
@@ -309,3 +315,29 @@ function ConsultCard(props) {
 }
 
 export default ConsultCard;
+
+// adding medical record 
+export const addMedicalRecord = (data) => {
+  let ipfs = new IPFS().getIPFS();
+  return new Promise((resolve, reject) => {
+    // adding data into ipfs
+    ipfs.add(JSON.stringify(data)).then((result) => { 
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        console.log(data);
+        web3Helper.connectedAccount().then((account) => {
+          data.doctor = account;
+          EHRcontract.methods
+            .addMedicalRecord(data.patient, result.path)
+            .send({ from: account })
+            .on("confirmation", (r) => {
+              resolve(r);
+            })
+            .on("error", (err) => {
+              reject(err);
+            });
+        });
+      });
+    });
+  });
+};

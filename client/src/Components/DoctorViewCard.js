@@ -2,7 +2,12 @@ import "../styles/ConsultCard.css";
 import "../styles/MedicalReport.css";
 import paticon from "../assets/pat-icon.png";
 import React, { useState } from "react";
-import { viewMedicalRecord } from "../functionalities/doctorFunctionalities";
+// import { viewMedicalRecord } from "../functionalities/doctorFunctionalities";
+import { IPFS } from "../Helper/ipfs-helper";
+import { Web3Helper } from "../Helper/web3-helper";
+import axios from "axios";
+const web3Helper = new Web3Helper();
+let ipfs = new IPFS().getIPFS();
 
 function DoctorViewCard(props) {
   const [modal, setModal] = useState(false);
@@ -20,6 +25,9 @@ function DoctorViewCard(props) {
       toggleModal();
       console.log(r);
     });
+
+
+
   }
 
   return (
@@ -148,3 +156,36 @@ function DoctorViewCard(props) {
 }
 
 export default DoctorViewCard;
+
+// getting the medical record of the given patient using their id
+export const viewMedicalRecord = (id) => {
+  let ipfs = new IPFS().getIPFS();
+  return new Promise((resolve, reject) => {
+     
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        console.log(id);
+        
+        EHRcontract.methods
+            .viewMedicalRecord(id) // fuction from smart contract 
+            .call()
+            //returns the ipfs hash "r"
+            .then((r) => {
+              axios
+              .get("http://localhost:8080/ipfs/" + r) // 
+              .then(function (response) {
+                // handle success
+                console.log(response);
+                resolve(response.data);
+              })
+              .catch(function (error) {
+                // handle error
+                console.log(error);
+              })
+            })
+            .catch((err) => {
+              reject(err);
+            });
+      });
+    });
+};
