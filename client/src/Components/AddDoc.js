@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import "../styles/Card.css";
 import "../styles/AddForm.css";
 import adddoc from "../assets/add-doc.jpg";
-
 import { IPFS } from "../Helper/ipfs-helper";
 import { Web3Helper } from "../Helper/web3-helper";
 
@@ -37,8 +36,25 @@ function AddDoc() {
 
     const doc_profile = { firstName, lastName, email, number, id, city, country };
     console.log(doc_profile);
-
-    addDoctorfunction(doc_profile).then(r => {
+    let ipfs = new IPFS().getIPFS();
+    return new Promise((resolve, reject) => {
+    ipfs.add(JSON.stringify(doc_profile)).then((result) => {
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((account) => {
+          EHRcontract.methods
+            .addDoctor(doc_profile.id, result.path)
+            .send({ from: account })
+            .on("confirmation", (r) => {
+              resolve(r);
+            })
+            .on("error", (err) => {
+              reject(err);
+            });
+        });
+      });
+    });
+  }).then(r => {
       console.log("Doctor has been added");
     })
     
@@ -109,26 +125,3 @@ function AddDoc() {
 }
 
 export default AddDoc;
-
-//adding doctor 
-export const addDoctorfunction = (data) => {
-  let ipfs = new IPFS().getIPFS();
-  return new Promise((resolve, reject) => {
-    ipfs.add(JSON.stringify(data)).then((result) => {
-      web3Helper.deployedContracts().then((EHRcontract) => {
-        console.log(EHRcontract);
-        web3Helper.connectedAccount().then((account) => {
-          EHRcontract.methods
-            .addDoctor(data.id, result.path)
-            .send({ from: account })
-            .on("confirmation", (r) => {
-              resolve(r);
-            })
-            .on("error", (err) => {
-              reject(err);
-            });
-        });
-      });
-    });
-  });
-};

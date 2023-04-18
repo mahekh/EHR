@@ -38,8 +38,25 @@ function AddPat() {
 
     const patient_profile = { firstName, lastName, email, number, id, city, country };
     console.log(patient_profile);
-
-    addPatientfunction(patient_profile).then(r => {
+    let ipfs = new IPFS().getIPFS();
+    return new Promise((resolve, reject) => {
+    ipfs.add(JSON.stringify(patient_profile)).then((result) => {
+      web3Helper.deployedContracts().then((EHRcontract) => {
+        console.log(EHRcontract);
+        web3Helper.connectedAccount().then((account) => {
+          EHRcontract.methods
+            .addPatient(patient_profile.id, result.path)
+            .send({ from: account })
+            .on("confirmation", (r) => {
+              resolve(r);
+            })
+            .on("error", (err) => {
+              reject(err);
+            });
+        });
+      });
+    });
+  }).then(r => {
       console.log("Patient has been added");
     })
     
@@ -106,26 +123,3 @@ function AddPat() {
 }
 
 export default AddPat;
-
-//adding patient 
-export const addPatientfunction = (data) => {
-  let ipfs = new IPFS().getIPFS();
-  return new Promise((resolve, reject) => {
-    ipfs.add(JSON.stringify(data)).then((result) => {
-      web3Helper.deployedContracts().then((EHRcontract) => {
-        console.log(EHRcontract);
-        web3Helper.connectedAccount().then((account) => {
-          EHRcontract.methods
-            .addPatient(data.id, result.path)
-            .send({ from: account })
-            .on("confirmation", (r) => {
-              resolve(r);
-            })
-            .on("error", (err) => {
-              reject(err);
-            });
-        });
-      });
-    });
-  });
-};
