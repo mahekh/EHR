@@ -1,7 +1,8 @@
 import Web3 from "web3";
 
+//https://web3js.readthedocs.io/en/v1.2.11/index.html 
 // https://web3js.readthedocs.io/en/v1.2.11/web3-eth-net.html#eth-net
-// https://docs.metamask.io/wallet/reference/provider-api/
+
 
 const EHR = require("../contracts/EHR.json"); //imported compiled smart contracts
 
@@ -18,7 +19,7 @@ export class Web3Helper {
     });
 
     this.getWeb3().then((web3) => {
-      //Gets the current network ID https://web3js.readthedocs.io/en/v1.2.11/web3-eth-net.html
+      //Gets the current network ID https://web3js.readthedocs.io/en/v1.2.11/web3-net.html#getid 
       web3.eth.net.getId().then((id) => {
 
           //get network data for the deployed contracts
@@ -35,6 +36,8 @@ export class Web3Helper {
 
 
   // connecting with metamask, checking if window.web3 is available
+  //https://wiki.polygon.technology/docs/develop/metamask/overview/ 
+  //https://docs.metamask.io/wallet/reference/provider-api/ 
   getWeb3() {
     return new Promise((resolve, reject) => {
       if (window.ethereum) {
@@ -47,6 +50,7 @@ export class Web3Helper {
   }
 
   // retrieving the current connected account in metamask
+  //https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#getaccounts 
   connectedAccount() {
     return new Promise((resolve, reject) => {
       if (this.web3) {
